@@ -41,6 +41,7 @@ let dropdown (viz: Visualization) =
             | PhaseDiagram -> (1140, 720)
             | Deceased -> (1140, 720)
             | ExcessDeaths -> (1140, 720)
+            | ModelPredictions -> (1140, 720)
 
         let graphUrl =
             "https://covid-19.sledilnik.org/"

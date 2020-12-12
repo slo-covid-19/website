@@ -44,6 +44,7 @@ let init (query: obj) (visualization: string option) (page: string) (apiEndpoint
             | "PhaseDiagram" -> Some PhaseDiagram
             | "Deceased" -> Some Deceased
             | "ExcessDeaths" -> Some ExcessDeaths
+            | "ModelPredictions" -> Some ModelPredictions
             | _ -> None
             |> Embedded
 
@@ -508,8 +509,21 @@ let render (state: State) (_: Msg -> unit) =
                     | Failure error -> Utils.renderErrorLoading error
                     | Success data -> ExcessDeathsChart.Main.chart {| statsData = data |} }
 
+    let modelPredictions =
+          { VisualizationType = ModelPredictions
+            ClassName = "model-predictions-chart"
+            ChartTextsGroup = "modelPredictions"
+            Explicit = false
+            Renderer =
+                fun state ->
+                    match state.StatsData with
+                    | NotAsked -> Html.none
+                    | Loading -> Utils.renderLoading
+                    | Failure error -> Utils.renderErrorLoading error
+                    | Success data -> ModelPredictionsChart.Main.chart {| statsData = data |} }
+
     let localVisualizations =
-        [ hospitals; metricsComparison; dailyComparison
+        [ modelPredictions ; hospitals; metricsComparison; dailyComparison
           patients; patientsCare; deceased ; excessDeaths
           regions100k; map; municipalities
           ageGroupsTimeline; tests; ageGroups; hcCases;
@@ -540,6 +554,7 @@ let render (state: State) (_: Msg -> unit) =
           countriesTotalDeathsPer1M
           phaseDiagram
           excessDeaths
+          modelPredictions
         ]
 
     let embedded, visualizations =

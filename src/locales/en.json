@@ -591,6 +591,10 @@
                 "disclaimer": "Note: data on deaths for the last displayed week is incomplete. You can read more about the chart in the article"
             }
         },
+        "modelPredictions": {
+            "title": "Model predictions",
+            "titleMenu": "Model predistions"
+        },
         "hospitals": {
             "bedsShort": "Beds",
             "beds": "Hospital beds",

@@ -149,6 +149,7 @@ type VisualizationType =
     | PhaseDiagram
     | Deceased
     | ExcessDeaths
+    | ModelPredictions
 
 type RenderingMode =
     | Normal
