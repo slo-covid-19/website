@@ -66,6 +66,7 @@ type DisplayData = {
 
 type State = {
     StatsData : StatsData
+    RegionsData : RegionsData
     DisplayData : DisplayData array
     DiagramKind : DiagramKind
     Metric : Metric

@@ -13,13 +13,14 @@ open Highcharts
 open Types
 open Data
 
-let init statsData : State * Cmd<Msg> =
+let init statsData regionsData : State * Cmd<Msg> =
     let metric = Cases
     let diagramKind = TotalVsWeek
     let displayData = totalVsWeekData metric statsData
 
     let state = {
         StatsData = statsData
+        RegionsData = regionsData
         DisplayData = displayData
         DiagramKind = diagramKind
         Metric = metric
@@ -55,10 +56,36 @@ let sharedChartOptions displayData =
        legend = {| |}
        credits = Highcharts.credictsOptions |}
 
+open Browser
+
 let totalVsWeekChartOptions state =
     let sharedOptions = sharedChartOptions()
 
     let data = state.DisplayData |> Array.map (fun dp -> dp |> pojo)
+    let dataSeries = [|
+            {| data = data
+               color = state.Metric.Color.Light
+               marker = pojo {| symbol = "circle" ; radius = 2 |}
+               states = pojo {| hover = pojo {| lineWidth = 0 |} |}
+            |} |> pojo
+            {| data = [| data.[state.Day] |]
+               color = state.Metric.Color.Dark
+               marker = pojo {| symbol = "circle" ; radius = 8 |}
+               states = pojo {| hover = pojo {| lineWidth = 0 |} |}
+            |} |> pojo
+        |]
+
+    let regionsSeries =
+        state.RegionsData
+        |> RegionsData.dataByRegion
+        |> RegionsData.totalVsWeekData state.Metric
+        |> List.toArray
+        |> Array.map (fun dp ->
+            {| data = Array.map pojo dp.Data
+            // {| data = [| Array.last dp.Data |> pojo |]
+            // {| data = [| dp.Data.[state.Day] |> pojo |]
+               marker = pojo {| symbol = "circle" ; radius = 2 |}
+            |} |> pojo )
 
     {| sharedOptions with
         xAxis = pojo
@@ -85,18 +112,7 @@ let totalVsWeekChartOptions state =
                         (i18n "totalVsWeek.xAxisLabel") (I18N.NumberFormat.formatNumber(jsThis?x : int))
                         (i18n "totalVsWeek.yAxisLabel") (I18N.NumberFormat.formatNumber(jsThis?y : int)) |}
 
-        series = [|
-            {| data = data
-               color = state.Metric.Color.Light
-               marker = pojo {| symbol = "circle" ; radius = 2 |}
-               states = pojo {| hover = pojo {| lineWidth = 0 |} |}
-            |} |> pojo
-            {| data = [| data.[state.Day] |]
-               color = state.Metric.Color.Dark
-               marker = pojo {| symbol = "circle" ; radius = 8 |}
-               states = pojo {| hover = pojo {| lineWidth = 0 |} |}
-            |} |> pojo
-        |]
+        series = dataSeries
     |} |> pojo
 
 let weekVsWeekBeforeOptions state =
@@ -223,7 +239,7 @@ let renderChart state dispatch =
     ]
 
 let chart =
-    React.functionComponent(fun (props : {| data : StatsData |}) ->
-        let state, dispatch = React.useElmish(init props.data, update, [| |])
+    React.functionComponent(fun (props : {| statsData : StatsData ; regionsData : RegionsData |}) ->
+        let state, dispatch = React.useElmish(init props.statsData props.regionsData, update, [| |])
         renderChart state dispatch
     )

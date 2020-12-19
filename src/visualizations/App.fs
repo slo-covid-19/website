@@ -490,11 +490,15 @@ let render (state: State) (_: Msg -> unit) =
             Explicit = false
             Renderer =
                 fun state ->
-                    match state.StatsData with
-                    | NotAsked -> Html.none
-                    | Loading -> Utils.renderLoading
-                    | Failure error -> Utils.renderErrorLoading error
-                    | Success data -> lazyView PhaseDiagram.Chart.chart {| data = data |} }
+                    match state.StatsData, state.RegionsData with
+                    | NotAsked, _ -> Html.none
+                    | _, NotAsked -> Html.none
+                    | Loading, _ -> Utils.renderLoading
+                    | _, Loading -> Utils.renderLoading
+                    | Failure error, _ -> Utils.renderErrorLoading error
+                    | _, Failure error -> Utils.renderErrorLoading error
+                    | Success statsData, Success regionsData ->
+                        lazyView PhaseDiagram.Chart.chart {| statsData = statsData ; regionsData = regionsData ; |} }
 
     let excessDeaths =
           { VisualizationType = ExcessDeaths
@@ -532,7 +536,7 @@ let render (state: State) (_: Msg -> unit) =
           europeMap; sources
           cases; regionMap; regionsAbs
           phaseDiagram; spread;
-          infections; hCenters 
+          infections; hCenters
         ]
 
     let worldVisualizations =
