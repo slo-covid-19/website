@@ -7,6 +7,7 @@ import { faSpinner, faGlobe, faCaretDown } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './filters'
 import './directives'
+import './store/fsharpInterop'
 
 // bootstrap
 Vue.use(LayoutPlugin)
