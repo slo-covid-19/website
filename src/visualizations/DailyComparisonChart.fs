@@ -24,8 +24,10 @@ type DisplayType =
     | Deceased
 with
     static member UseStatsData dType = [ Active; New; Tests; PositivePct; ] |> List.contains dType
-    static member all = [ New; Active; Tests; PositivePct; HospitalAdmitted; HospitalDischarged; ICUAdmitted; Deceased; ]
-    static member getName = function
+    static member All = [ New; Active; Tests; PositivePct; HospitalAdmitted; HospitalDischarged; ICUAdmitted; Deceased; ]
+    static member Default = New
+    member this.GetName =
+        match this with
         | New -> I18N.t "charts.dailyComparison.new"
         | Active -> I18N.t "charts.dailyComparison.active"
         | Tests -> I18N.t "charts.dailyComparison.tests"
@@ -34,7 +36,8 @@ with
         | HospitalDischarged -> I18N.t "charts.dailyComparison.hospitalDischarged"
         | ICUAdmitted -> I18N.t "charts.dailyComparison.icuAdmitted"
         | Deceased -> I18N.t "charts.dailyComparison.deceased"
-    static member getColor = function
+    member this.GetColor =
+        match this with
         | New -> "#bda506"
         | Active -> "#dba51d"
         | Tests -> "#19aebd"
@@ -62,7 +65,7 @@ let init data : State * Cmd<Msg> =
         StatsData = data
         PatientsData = [||]
         Error = None
-        DisplayType = New
+        DisplayType = DisplayType.Default
     }
     state, cmd
 
@@ -83,20 +86,20 @@ let renderChartOptions (state : State) dispatch =
 
     let percentageFormatter value =
         let valueF = float value / 100.0
-        sprintf "%0.2f%%" valueF
+        Utils.percentWith1DecimalFormatter(valueF)
 
     let tooltipFormatter state jsThis =
         let category = jsThis?x
         let pts: obj[] = jsThis?points
 
-        let mutable fmtStr = sprintf "<b>%s</b><br>%s<br>" (DisplayType.getName state.DisplayType) category
+        let mutable fmtStr = sprintf "<b>%s</b><br>%s<br>" (state.DisplayType.GetName) category
         let mutable fmtLine = ""
         fmtStr <- fmtStr + "<table>"
         for p in pts do
             let yStr =
                 match state.DisplayType with
                 | PositivePct -> percentageFormatter p?point?y
-                | _ -> sprintf "%d" p?point?y
+                | _ -> I18N.NumberFormat.formatNumber (p?point?y : float)
             fmtLine <- sprintf "<tr><td><span style='color:%s'>●</span></td><td>%s</td><td style='text-align: right; padding-left: 10px'><b>%s</b></td><td style='text-align: right; padding-left: 10px'>%s</td></tr>"
                 p?series?color
                 p?point?date
@@ -155,15 +158,16 @@ let renderChartOptions (state : State) dispatch =
                 let newB = int (Math.Round (float(b) * sat + avg * (1.0 - sat)))
                 sprintf "#%02x%02x%02x" newR newG newB
 
-            let getSeriesColor dt series =
-                desaturateColor (DisplayType.getColor dt) (float (series) / float (weeksShown))
+            let getSeriesColor (dt: DisplayType) series =
+                desaturateColor (dt.GetColor) (float (series) / float (weeksShown))
 
             let percent a b =
                 match a, b with
                 | Some v, Some p ->
                     if p = 0
                     then if v = 0 then "" else ">500%"
-                    else sprintf "%+0.0f%%" (float(v) / float(p) * 100.0 - 100.0)
+                    else sprintf "%+0.1f %%" (float(v) / float(p) * 100.0 - 100.0)
+                        // Utils.percentWith1DecimalSignFormatter((float(v) / float(p) * 100.) - 100.)
                 | _, _ -> ""
 
             yield pojo
@@ -274,13 +278,13 @@ let renderSelector state (dt: DisplayType) dispatch =
         Utils.classes
             [(true, "btn btn-sm metric-selector")
              (isActive, "metric-selector--selected")]
-        prop.text (DisplayType.getName dt) ]
+        prop.text dt.GetName ]
 
 let renderDisplaySelectors state dispatch =
     Html.div [
         prop.className "metrics-selectors"
         prop.children (
-            DisplayType.all
+            DisplayType.All
             |> List.map (fun dt -> renderSelector state dt dispatch) ) ]
 
 let render (state: State) dispatch =

@@ -22,7 +22,8 @@
         "world": "Welt",
         "animation": "Animation",
         "ostanizdrav": "#OstaniZdrav",
-        "goToGraph": "Gehe zum Diagramm"
+        "goToGraph": "Gehe zum Diagramm",
+        "posts": "Objave"
     },
     "country": {
         "ABW": "Aruba",
@@ -384,11 +385,9 @@
             "linear": "Linear",
             "longDateFormat": "%e. %B %Y",
             "view": "Ansicht:",
-            "decimalPoint": ".",
             "linkFaq": "FAQ",
             "share": "Teilen",
             "dateFormat": "%A, %e. %B %Y",
-            "thousandsSep": " ",
             "dsOWD": "Our World in Data",
             "webpage": "Internetseite",
             "shortDateFormat": "%e. %b",
@@ -506,7 +505,7 @@
             "ventilatorDischarged": "Vom Beatmungsgerät abgekoppelt",
             "ventilatorAdmitted": "An Beatmungsgerät",
             "confirmedCases": "Bestätigte Fälle",
-            "testsPerformed": "Tests",
+            "testsPerformed": "Tests: PCR",
             "showToDate": "Bis heute",
             "showToday": "Tägliche",
             "showActive": "Aktive",
@@ -515,15 +514,6 @@
             "titleMenu_MNE": "Montenegro – Lage",
             "titleMenu_MKD": "N. Mazedonien – Lage",
             "titleMenu_SVN": "Slowenien – Lage"
-        },
-        "countries": {
-            "groupNordic": "Nordische Länder",
-            "title": "Ländervergleich",
-            "groupEastAsiaOceania": "Ostasien und Ozeanien",
-            "groupLatinAmerica": "Lateinamerika",
-            "groupExYu": "Ex-Jugoslawien",
-            "groupNeighbouring": "Nachbarländer",
-            "nrDeathsPerMillion": "Anzahl Todesfälle pro eine Million Menschen"
         },
         "hospitals": {
             "bedsICU": "Intensivbetten",
@@ -552,16 +542,16 @@
             "titleMenu": "Kapazität"
         },
         "tests": {
-            "ns-apr20": "Studie",
+            "ns-apr20": "Studie: PCR",
             "shareOfPositive": "Anteil der positiven Tests (%)",
-            "allTesting": "Alle",
+            "totalPCR": "Alle: PCR",
             "title": "Testung",
-            "regular": "Regelmäßige",
+            "regular": "Regelmäßige: PCR",
             "positiveTests": "Positive Tests",
             "negativeTests": "Negative Tests",
             "titleMenu": "Testung",
             "byLabPercent": "Nach Labor: % positiv",
-            "byLab": "Nach Labor: Tests",
+            "byLab": "Nach Labor: Tests PCR",
             "disclaimer": "Hinweis: Ab dem 3. Dezember erhalten wir keine Daten einzelner Laboratorien."
         },
         "regions": {
@@ -593,13 +583,13 @@
             "activeCasesRelative": "Aktive Fälle (relativ)",
             "titleMenu": "Alter – Anteil"
         },
-        "countriesTotalDeathsPer1M": {
+        "countriesTotalDeathsPer100k": {
             "legendTitle": "Gesamtzahl der Todesfälle pro 100.000 Menschen (7-Tage-Durchschnitt)",
             "yAxisTitle": "Gesamtzahl der Todesfälle pro 100.000 Menschen",
             "title": "Länder: Gesamtzahl der Todesfälle pro 100.000 Menschen (7-Tage-Durchschnitt)",
             "titleMenu": "Länder – Todesfälle"
         },
-        "countriesNewCasesPer1M": {
+        "countriesNewCasesPer100k": {
             "legendTitle": "Neue tägliche Fälle pro 100.000 Menschen (7-Tage-Durchschnitt)",
             "yAxisTitle": "Neue tägliche Fälle pro 100.000 Menschen",
             "title": "Länder: Neue tägliche Fälle pro 100.000 Menschen (7-Tages-Durchschnitt)",
@@ -624,7 +614,7 @@
             "daysFromOneDeathPerMillion": "Anzahl Tage seit erstem Todesfall pro 1 Million Menschen",
             "titleMenu": "Länder – Todesfälle pro Fälle"
         },
-        "countriesActiveCasesPer1M": {
+        "countriesActiveCasesPer100k": {
             "red": "Kriterien für die rote Liste",
             "legendTitle": "Aktive Fälle pro 100.000 Menschen",
             "yAxisTitle": "Aktive Fälle pro 100.000 Menschen",
@@ -632,8 +622,8 @@
             "titleMenu": "Länder – Aktive Fälle"
         },
         "dailyComparison": {
-            "positivePct": "Anteil der positiven Tests (%)",
-            "tests": "Durchgeführte Tests",
+            "positivePct": "Anteil der positiven Tests: PCR (%)",
+            "tests": "Durchgeführte Tests: PCR",
             "active": "Aktive Fälle",
             "new": "Bestätigte Fälle",
             "title": "Vergleich nach Wochentag",
@@ -753,8 +743,8 @@
             "healthcareEmployeesCases": "Bestätigt bei Angestellten im Gesundheitswesen",
             "confirmedCases": "Bestätigte Fälle",
             "disclaimer": "Hinweis: Daten für die letzte Woche sind noch nicht vollständig - der Anteil der Angestellten im Gesundheitswesen könnte hier geringer ausfallen, als er eigentlich ist.",
-            "titleMenu": "Fälle Angestellte Gesundheitswesen",
-            "title": "Bestätigte Fälle bei Angestellten des Gesundheitswesens"
+            "titleMenu": "Fälle in Krankenhäsern und Altersheimen",
+            "title": "Fälle im Gesundheitswesens und in Altersheimen"
         },
         "countriesNewDeathsPer100k": {
             "legendTitle": "Neue tägliche Todesfälle pro 100.000 Menschen",
@@ -773,7 +763,9 @@
             "deceasedTodayRelative": "Todesfälle pro Tag (relativ)",
             "deceasedToday": "Todesfälle pro Tag",
             "titleMenu": "Todesfälle",
-            "title": "Todesfälle"
+            "title": "Todesfälle",
+            "deceasedByAgeTodayRelative": "Tägliche Todesfälle nach Alter (relativ)",
+            "deceasedByAgeToday": "Tägliche Todesfälle nach Alter"
         },
         "excessDeaths": {
             "excess": {
@@ -788,7 +780,8 @@
                 "disclaimer": "Hinweis: Die Daten über Todesfälle für die letzte angezeigte Woche sind unvollständig. Finde weitere Informationen zum Diagramm im Artikel",
                 "title": "Jahresvergleich"
             },
-            "weekDate": "{{ dateFrom, %e. %b }} – {{ dateTo, %e. %b }}"
+            "weekDate": "{{ dateFrom, %e. %b }} - {{ dateTo, %e. %b }}",
+            "weekDateWithYear": "{{ dateFrom, %e. %b %Y }} - {{ dateTo, %e. %b %Y }}"
         }
     },
     "tableDict": {
@@ -1045,22 +1038,15 @@
         "active": "Aktive Fälle",
         "incidence": "14-Tage-Inzidenz",
         "confirmedToDate": "Bestätigte Fälle",
-        "tests": "Tests heute",
+        "tests": "Tests heute: PCR",
         "lastUpdated": "{{ date, %a, %e. %b }}",
         "icu": "Auf Intensivstationen",
         "deceasedToDate": "Bestätigte Todesfälle",
         "inHospital": "Hospitalisierte",
-        "redPhase": "Rote Phase",
-        "orangePhase": "Orange Phase",
-        "per100k": "pro 100 tausend",
-        "package3": "Paket 3",
-        "package2": "Paket 2",
-        "package1": "Paket 1",
-        "nextCriteria": "<br> Kriterien für das Paket {{ phaseNextNumber }} der {{ phaseNextPackage }} Phase ist {{ phaseNextCriteria }}.",
-        "redPhaseGenitive": "roten",
-        "orangePhaseGenitive": "orangenen",
         "newCases7dInfo": "Durchschnitt der letzten 7 Tage",
-        "newCases7d": "Neue Fälle"
+        "newCases7d": "Neue Fälle",
+        "testsHAT": "Tests heute: Schnelltests",
+        "vaccinationSummary": "Geimpfte Personen"
     },
     "notice": {
         "newChart": "🆕 📊 Neues Diagramm:",
@@ -1279,6 +1265,10 @@
         "13": {
             "description": "Neue Testmethode",
             "title": "Phase<br>13"
+        },
+        "14": {
+            "description": "Schnelltests",
+            "title": "Phase<br>14"
         }
     },
     "embedMaker": {
@@ -1324,7 +1314,7 @@
         "x_days_ago_plural": "Vor {{ count }} Tagen",
         "in_x_days": "in {{ count }} Tag",
         "in_x_days_plural": "in {{ count }} Tagen",
-        "weekYearFromToDate": "<b>{{date, %e. %b}} – {{dateTo, %e. %b}}</b> ({{date, %W. Woche %Y}})"
+        "weekYearFromToDate": "<b>{{date, %e. %b}} – {{dateTo, %e. %b}}</b> ({{dateTo, %W. Woche %Y}})"
     },
     "country-groups": {
         "groupNeighbouring": "Nachbarländer",
@@ -1361,5 +1351,13 @@
         "geoValidity": "Geografische Gültigkeit",
         "title": "Maßnahmen und Einschränkungen"
     },
-    "week": "Woche"
+    "week": "Woche",
+    "faq": {
+        "pageTitle": "FAQ",
+        "intro": "_Leider ist diese Seite noch nicht übersetzt._"
+    },
+    "posts": {
+        "timestamp": "{{ date, %e. %B %Y }}",
+        "readingTime": "min"
+    }
 }

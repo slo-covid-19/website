@@ -33,19 +33,12 @@ let regionsInfo = dict[
     "za", { Color = "#10829a" }
 ]
 
-let excludedRegions = Set.ofList ["t"]
-
 type Msg =
+    | ToggleAllRegions of bool
     | ToggleRegionVisible of string
     | MetricTypeChanged of MetricType
     | ScaleTypeChanged of ScaleType
     | RangeSelectionChanged of int
-
-let regionTotal (region : Region) : int =
-    region.Municipalities
-    |> List.map (fun city -> city.ActiveCases)
-    |> List.choose id
-    |> List.sum
 
 let init (config: RegionsChartConfig) (data : RegionsData)
     : RegionsChartState * Cmd<Msg> =
@@ -54,14 +47,14 @@ let init (config: RegionsChartConfig) (data : RegionsData)
     let regionsWithoutExcluded =
         lastDataPoint.Regions
         |> List.filter (fun region ->
-            not (excludedRegions |> Set.contains region.Name))
+            Set.contains region.Name Utils.Dictionaries.excludedRegions |> not)
 
-    let regionsByTotalCases =
+    let regionsSorted =
         regionsWithoutExcluded
-        |> List.sortByDescending regionTotal
+        |> List.sortByDescending (fun region -> region.ActiveCases)
 
     let regionsConfig =
-        regionsByTotalCases
+        regionsSorted
         |> List.map (fun region ->
             let regionKey = region.Name
             let color = regionsInfo.[regionKey].Color
@@ -69,17 +62,26 @@ let init (config: RegionsChartConfig) (data : RegionsData)
               Color = color
               Visible = true } )
 
-    { ScaleType = Linear; MetricType = ActiveCases
+    { ScaleType = Linear; MetricType = MetricType.Default
       ChartConfig = config
       RegionsData = data
-      Regions = regionsByTotalCases
+      RegionsSorted = regionsSorted
       RegionsConfig = regionsConfig
-      RangeSelectionButtonIndex = 0 },
+      RangeSelectionButtonIndex = 0
+      ShowAll = true },
     Cmd.none
 
 let update (msg: Msg) (state: RegionsChartState)
     : RegionsChartState * Cmd<Msg> =
     match msg with
+    | ToggleAllRegions visibleOrHidden ->
+        let newRegionsConfig =
+            state.RegionsConfig
+            |> List.map (fun region ->
+                { Key = region.Key
+                  Color = region.Color
+                  Visible = visibleOrHidden } )
+        { state with RegionsConfig = newRegionsConfig; ShowAll = not state.ShowAll }, Cmd.none
     | ToggleRegionVisible regionKey ->
         let newRegionsConfig =
             state.RegionsConfig
@@ -128,10 +130,10 @@ let tooltipFormatter (state: RegionsChartState) _ jsThis =
                     s.Append "<tr>" |> ignore
                     let regionTooltip =
                         sprintf
-                            "<td><span style='color:%s'>●</span></td><td>%s</td><td style='text-align: right; padding-left: 10px'>%A</td>"
+                            "<td><span style='color:%s'>●</span></td><td>%s</td><td style='text-align: right; padding-left: 10px'>%s</td>"
                             regionColor
                             regionName
-                            (tooltipValueFormatter state dataValue)
+                            (I18N.NumberFormat.formatNumber(dataValue, {| maximumFractionDigits=1 |}))
                     s.Append regionTooltip |> ignore
                     s.Append "</tr>" |> ignore
                 )
@@ -231,19 +233,21 @@ let renderRegionSelector (regionConfig: RegionRenderingConfiguration) dispatch =
     Html.div [
         prop.onClick (fun _ -> ToggleRegionVisible regionConfig.Key |> dispatch)
         Utils.classes
-            [(true, "btn  btn-sm metric-selector")
+            [(true, "btn btn-sm metric-selector")
              (regionConfig.Visible, "metric-selector--selected") ]
         prop.style style
         prop.text (I18N.tt "region" regionConfig.Key) ]
 
-let renderRegionsSelectors metrics dispatch =
+let renderRegionsSelectors (state: RegionsChartState) dispatch =
     Html.div [
         prop.className "metrics-selectors"
         prop.children (
-            metrics
-            |> List.map (fun metric ->
-                renderRegionSelector metric dispatch
-            ) ) ]
+            [ Html.div [
+                prop.onClick (fun _ -> ToggleAllRegions ( if state.ShowAll then false else true ) |> dispatch)
+                prop.className "btn btn-sm metric-selector"
+                prop.text ( if state.ShowAll then I18N.t "charts.common.hideAll" else I18N.t "charts.common.showAll" ) ] ]
+            |> List.append ( state.RegionsConfig |> List.map (fun metric -> renderRegionSelector metric dispatch ) )
+        ) ]
 
 let renderMetricTypeSelectors (activeMetricType: MetricType) dispatch =
     let renderMetricTypeSelector (typeSelector: MetricType) =
@@ -253,7 +257,7 @@ let renderMetricTypeSelectors (activeMetricType: MetricType) dispatch =
             Utils.classes
                 [(true, "chart-display-property-selector__item")
                  (active, "selected") ]
-            prop.text (typeSelector |> MetricType.getName)
+            prop.text (typeSelector |> MetricType.GetName)
         ]
 
     let metricTypesSelectors =
@@ -274,7 +278,17 @@ let render (state : RegionsChartState) dispatch =
                 state.ScaleType (ScaleTypeChanged >> dispatch)
         ]
         renderChartContainer state dispatch
-        renderRegionsSelectors state.RegionsConfig dispatch
+        renderRegionsSelectors state dispatch
+
+        match state.MetricType with
+        | MetricType.Deceased ->
+            Html.div [
+                prop.className "disclaimer"
+                prop.children [
+                    Html.text (I18N.t "charts.regions.disclaimer")
+                ]
+            ]
+        | _ -> Html.none
     ]
 
 let renderChart

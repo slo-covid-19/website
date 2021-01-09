@@ -9,7 +9,8 @@ type MetricType =
     | NewCases7Days
     | Deceased
   with
-    static member getName = function
+    static member Default = MetricType.ActiveCases
+    static member GetName = function
         | ActiveCases -> I18N.chartText "regions" "activeCases"
         | ConfirmedCases -> I18N.chartText "regions" "confirmedCases"
         | NewCases7Days -> I18N.chartText "regions" "newCases7Days"
@@ -28,7 +29,7 @@ type RegionMetricData = {
 let findRegionData
     (regionsDataPoint: RegionsDataPoint)
     (regionName: string)
-    : Region =
+    : AreaCases =
     regionsDataPoint.Regions
     |> List.find (fun regionDayData -> regionDayData.Name = regionName)
 
@@ -41,15 +42,12 @@ let metricForRegionForDay
     let regionDayData =
         findRegionData regionsDataPoint regionName
 
-    regionDayData.Municipalities
-    |> List.sumBy
-           (fun muniData ->
-                match metricType with
-                | ActiveCases -> muniData.ActiveCases
-                | ConfirmedCases -> muniData.ConfirmedToDate
-                | NewCases7Days -> muniData.ConfirmedToDate
-                | Deceased -> muniData.DeceasedToDate
-                |> Utils.optionToInt)
+    match metricType with
+    | ActiveCases -> regionDayData.ActiveCases
+    | ConfirmedCases -> regionDayData.ConfirmedToDate
+    | NewCases7Days -> regionDayData.ConfirmedToDate
+    | Deceased -> regionDayData.DeceasedToDate
+    |> Utils.optionToInt
 
 let metricForRegion
     (regionsData: RegionsData)

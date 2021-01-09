@@ -80,11 +80,11 @@ export default {
     icon: 'map',
   },
   'countries-active-chart': {
-    titleKey: 'charts.countriesActiveCasesPer1M.titleMenu',
+    titleKey: 'charts.countriesActiveCasesPer100k.titleMenu',
     icon: 'graph',
   },
   'countries-cases-chart': {
-    titleKey: 'charts.countriesNewCasesPer1M.titleMenu',
+    titleKey: 'charts.countriesNewCasesPer100k.titleMenu',
     icon: 'graph',
   },
   'countries-new-deaths-chart': {
@@ -92,7 +92,7 @@ export default {
     icon: 'graph',
   },
   'countries-total-deaths-chart': {
-    titleKey: 'charts.countriesTotalDeathsPer1M.titleMenu',
+    titleKey: 'charts.countriesTotalDeathsPer100k.titleMenu',
     icon: 'graph',
   },
   'phase-diagram-chart': {
@@ -111,4 +111,12 @@ export default {
     titleKey: 'youtube.titleMenu',
     icon: 'map',
   },
+  'metrics-correlation-chart': {
+    titleKey: 'charts.metricsCorrelation.titleMenu',
+    icon: 'graph',
+  },
+  'weekly-demographics-chart': {
+    titleKey: 'charts.weeklyDemographics.titleMenu',
+    icon: 'map',
+  }
 }

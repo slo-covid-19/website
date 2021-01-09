@@ -24,13 +24,20 @@ type Model = {
     Name : string
 }
 
-type Scenario = Scenario of string
+type Scenario =
+    Scenario of string
 
-type PredictionIntervalKind = PredictionIntervalKind of string
+type IntervalKind =
+    IntervalKind of string
 
-type PredictionIntervalWidth = PredictionIntervalWidth of int
+type Prediction = {
+    Date : System.DateTime
+    Model : Model
+    Scenario : Scenario
+    IntervalKind : IntervalKind
+}
 
-type PredictionData =
+type PredictionDataPoint =
     { Date : System.DateTime
       Icu : int
       IcuLowerBound : int
@@ -45,43 +52,37 @@ type PredictionData =
       DeceasedToDateLowerBound : int
       DeceasedToDateUpperBound : int }
 
-type PredictionInterval =
-    { Type : PredictionIntervalKind
-      Width : PredictionIntervalWidth }
+// type PredictionData = PredictionDataPoint list
 
-type PredictionKind =
-    { Scenario : Scenario
-      Interval : PredictionInterval }
+// type PredictionsByKind = Map<PredictionKind, PredictionData>
 
-type PredictionsByKind = Map<PredictionKind, PredictionData>
-
-type PredictionsByModel = Map<Model, PredictionsByKind>
+// type PredictionsByModel = Map<Model, PredictionsByKind>
 
 type PredictionsByDate = Map<System.DateTime, RemoteData<PredictionsByModel, string>>
 
 type DisplayOption =
     | Model of Model
-    | PredictionIntervalKind of PredictionIntervalKind
-    | PredictionIntervalWidth of PredictionIntervalWidth
+    | Scenario of Scenario
+    | IntervalKind of IntervalKind
 
 type DisplayOptions =
     { Models : Model list
-      PredictionIntervalTypes : PredictionIntervalKind list
-      PredictionIntervalWidths : PredictionIntervalWidth list }
+      Scenarios : Scenario list
+      IntervalKinds : IntervalKind list }
 
 type SelectedDisplayOptions =
     { Models : Set<Model>
-      PredictionIntervalKinds : Set<PredictionIntervalKind>
-      PredictionIntervalWidths : Set<PredictionIntervalWidth> }
+      Scenarios : Set<Scenario>
+      IntervalKinds : Set<IntervalKind> }
 
-    static member empty =
+    static member Empty =
         { Models = Set.empty
-          PredictionIntervalKinds = Set.empty
-          PredictionIntervalWidths = Set.empty }
+          Scenarios = Set.empty
+          IntervalKinds = Set.empty }
 
 type State =
     { StatsData : StatsData
-      Predictions : PredictionsByDate
+      PredictionsData : PredictionsByDate
       DisplayOptions : RemoteData<DisplayOptions, string>
       SelectedDisplayOptions : SelectedDisplayOptions }
 
