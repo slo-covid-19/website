@@ -1,15 +1,15 @@
 module ModelPredictionsChart.Main
 
 open Feliz
+open Feliz.UseDeferred
 open Browser
 
 open Types
 
 let init statsData =
     { StatsData = statsData
-      Predictions = Map.empty
-      DisplayOptions = NotAsked
-      SelectedDisplayOptions = SelectedDisplayOptions.empty }
+      PredictionsMetadata = NotAsked
+      SelectedDisplayOptions = SelectedDisplayOptions.Empty }
 
 let toggleSelected (set : Set<'item>) (item  : 'item) selected =
     match selected with
@@ -18,19 +18,24 @@ let toggleSelected (set : Set<'item>) (item  : 'item) selected =
 
 let update state msg =
     match msg with
+    | PredictionsMetadataLoaded predictionsMetadataResults ->
+        let predictionsMetadata =
+            match predictionsMetadataResults with
+            | Ok data -> Success data
+            | Error error -> Failure error
+        { state with PredictionsMetadata = predictionsMetadata }
     | DisplayOptionChanged (displayOption, selected) ->
         let oldOptions = state.SelectedDisplayOptions
         let newOptions =
             match displayOption, selected with
             | Model item, selected ->
                 { oldOptions with Models = toggleSelected oldOptions.Models item selected }
-            | PredictionIntervalKind item, selected ->
-                { oldOptions with PredictionIntervalKinds = toggleSelected oldOptions.PredictionIntervalKinds item selected }
-            | PredictionIntervalWidth item, selected ->
-                { oldOptions with PredictionIntervalWidths = toggleSelected oldOptions.PredictionIntervalWidths item selected }
+            | Scenario item, selected ->
+                { oldOptions with Scenarios = toggleSelected oldOptions.Scenarios item selected }
+            | IntervalKind item, selected ->
+                { oldOptions with IntervalKinds = toggleSelected oldOptions.IntervalKinds item selected }
 
         { state with SelectedDisplayOptions = newOptions }
-
 
 // let renderDisplayTypeSelectors state dispatch =
 //     let selectors =
@@ -52,27 +57,28 @@ let update state msg =
 let chart = React.functionComponent("ModelPredictionsChart", fun (props : {| statsData : Types.StatsData |}) ->
     let (state, dispatch) = React.useReducer(update, init props.statsData)
 
-    // let loadData () = async {
-    //     let! data = Data.DailyDeaths.loadData ()
-    //     dispatch (DailyDeathsDataReceived data)
-    // }
+    let loadPredictionsMetadata () = async {
+        let! data = Data.ModelPredictions.loadPredictionsMetadata ()
+        dispatch (PredictionsMetadataLoaded data)
+    }
 
-    // React.useEffect(loadData >> Async.StartImmediate, [| |])
+    React.useEffect(loadPredictionsMetadata >> Async.StartImmediate, [| |])
 
-    // match state.WeeklyDeathsData with
-    // | NotAsked
-    // | Loading -> React.fragment [ ]
-    // | Failure error -> Html.div [ Html.text error ]
-    // | Success data ->
-    Html.div [
-        Utils.renderChartTopControls [
-            // renderDisplayTypeSelectors state dispatch
-        ]
+    match state.PredictionsMetadata with
+    | NotAsked
+    | Loading -> React.fragment []
+    | Failure error -> Utils.renderErrorLoading error
+    | Success predictionsMetadata ->
         Html.div [
-            prop.style [ style.height 450 ]
-            prop.className "highcharts-wrapper"
-            prop.children [
+            Utils.renderChartTopControls [
+                // renderDisplayTypeSelectors state dispatch
+            ]
+            Html.div [
+                prop.style [ style.height 450 ]
+                prop.className "highcharts-wrapper"
+                prop.children [
+                    Html.text (sprintf "%A" predictionsMetadata.Models)
+                ]
             ]
         ]
-    ]
 )

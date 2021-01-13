@@ -1,6 +1,7 @@
 module ModelPredictionsChart.Types
 
 open Types
+open Data.ModelPredictions
 
 let translate = I18N.chartText "modelPredictions"
 
@@ -19,56 +20,7 @@ type Metric =
         | Deceased -> translate "metrics.deceased"
         | DeceasedToDate -> translate "metrics.deceasedToDate"
 
-type Model = {
-    Id : System.Guid
-    Name : string
-}
-
-type Scenario =
-    Scenario of string
-
-type IntervalKind =
-    IntervalKind of string
-
-type Prediction = {
-    Date : System.DateTime
-    Model : Model
-    Scenario : Scenario
-    IntervalKind : IntervalKind
-}
-
-type PredictionDataPoint =
-    { Date : System.DateTime
-      Icu : int
-      IcuLowerBound : int
-      IcuUpperBound : int
-      Hospitalized : int
-      HospitalizedLowerBound : int
-      HospitalizedUpperBound : int
-      Deceased : int
-      DeceasedLowerBound : int
-      DeceasedUpperBound : int
-      DeceasedToDate : int
-      DeceasedToDateLowerBound : int
-      DeceasedToDateUpperBound : int }
-
-// type PredictionData = PredictionDataPoint list
-
-// type PredictionsByKind = Map<PredictionKind, PredictionData>
-
-// type PredictionsByModel = Map<Model, PredictionsByKind>
-
-type PredictionsByDate = Map<System.DateTime, RemoteData<PredictionsByModel, string>>
-
-type DisplayOption =
-    | Model of Model
-    | Scenario of Scenario
-    | IntervalKind of IntervalKind
-
-type DisplayOptions =
-    { Models : Model list
-      Scenarios : Scenario list
-      IntervalKinds : IntervalKind list }
+// type PredictionsByDate = Map<System.DateTime, RemoteData<PredictionsByModel, string>>
 
 type SelectedDisplayOptions =
     { Models : Set<Model>
@@ -82,9 +34,14 @@ type SelectedDisplayOptions =
 
 type State =
     { StatsData : StatsData
-      PredictionsData : PredictionsByDate
-      DisplayOptions : RemoteData<DisplayOptions, string>
+      PredictionsMetadata : RemoteData<PredictionsMetadata, string>
       SelectedDisplayOptions : SelectedDisplayOptions }
 
+type DisplayOption =
+    | Model of Model
+    | Scenario of Scenario
+    | IntervalKind of IntervalKind
+
 type Msg =
+    | PredictionsMetadataLoaded of Result<PredictionsMetadata, string>
     | DisplayOptionChanged of DisplayOption * bool

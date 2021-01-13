@@ -564,10 +564,11 @@ let render (state: State) (_: Msg -> unit) =
           patients; patientsCare; deceased; metricsCorrelation; excessDeaths
           regions100k; map; municipalities
           ageGroupsTimeline; weeklyDemographics; ageGroups;
-          infections; hcCases; hCenters
+          infections; hcCases;
           europeMap; sources
           cases; regionMap; regionsAbs
           phaseDiagram; spread;
+          hCenters
           modelPredictions
         ]
 
