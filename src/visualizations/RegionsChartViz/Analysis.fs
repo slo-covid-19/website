@@ -9,7 +9,7 @@ type MetricType =
     | NewCases7Days
     | Deceased
   with
-    static member Default = MetricType.ActiveCases
+    static member Default = MetricType.NewCases7Days
     static member GetName = function
         | ActiveCases -> I18N.chartText "regions" "activeCases"
         | ConfirmedCases -> I18N.chartText "regions" "confirmedCases"
@@ -24,6 +24,14 @@ type RegionMetricData = {
     StartDate: DateTime
     MetricValues: int []
 }
+
+let getMetric regionDayData metricType =
+    match metricType with
+    | ActiveCases -> regionDayData.ActiveCases
+    | ConfirmedCases -> regionDayData.ConfirmedToDate
+    | NewCases7Days -> regionDayData.ConfirmedToDate
+    | Deceased -> regionDayData.DeceasedToDate
+    |> Utils.optionToInt
 
 
 let findRegionData
@@ -42,12 +50,7 @@ let metricForRegionForDay
     let regionDayData =
         findRegionData regionsDataPoint regionName
 
-    match metricType with
-    | ActiveCases -> regionDayData.ActiveCases
-    | ConfirmedCases -> regionDayData.ConfirmedToDate
-    | NewCases7Days -> regionDayData.ConfirmedToDate
-    | Deceased -> regionDayData.DeceasedToDate
-    |> Utils.optionToInt
+    getMetric regionDayData metricType
 
 let metricForRegion
     (regionsData: RegionsData)
@@ -60,6 +63,30 @@ let metricForRegion
         regionsData
         |> List.map (fun regionsDataForDay ->
              metricForRegionForDay regionsDataForDay regionName metricType)
+
+    { Name = regionName
+      StartDate = startDate
+      MetricValues = metricValues |> List.toArray }
+
+let metricForAllRegionsForDay
+    (regionsDataPoint: RegionsDataPoint)
+    (metricType: MetricType)
+    : int =
+
+    regionsDataPoint.Regions
+    |> Seq.sumBy (fun dp -> getMetric dp metricType)
+
+let metricForAllRegions
+    (regionsData: RegionsData)
+    (startDate: DateTime)
+    (regionName: string)
+    (metricType: MetricType)
+    : RegionMetricData =
+
+    let metricValues =
+        regionsData
+        |> List.map (fun regionsDataForDay ->
+             metricForAllRegionsForDay regionsDataForDay metricType)
 
     { Name = regionName
       StartDate = startDate
