@@ -6,62 +6,63 @@ let apiUrl = "http://127.0.0.1:8000/api/modeling/models/"
 
 // https://api-models.sledilnik.org/api/models
 
-type Contact = {
-    Name : string
-    Email : string
-}
+module Domain =
 
-type Model = {
-    Id : string
-    Name : string
-    Www : string
-    Description : string option
-    Contacts : Contact list
-}
+    type Contact = {
+        Name : string
+        Email : string
+    }
 
-type Scenario = {
-    Id : string
-    Slug : string
-    Name : string
-    Description : string
-}
+    type Model = {
+        Id : string
+        Name : string
+        Www : string
+        Description : string option
+        Contacts : Contact list
+    }
 
-type IntervalKind = {
-    Id : string
-    Slug : string
-    Name : string
-    Description : string
-}
+    type Scenario = {
+        Id : string
+        Slug : string
+        Name : string
+        Description : string
+    }
 
-type Prediction = {
-    Date : System.DateTime
-    Model : Model
-    Scenario : Scenario
-    IntervalKind : IntervalKind
-}
+    type IntervalKind = {
+        Id : string
+        Slug : string
+        Name : string
+        Description : string
+    }
 
-type PredictionsMetadata = {
-    Models : Model list
-    Scenarios : Scenario list
-    IntervalKinds : IntervalKind list
-    Predictions : Prediction list
-}
+    type Prediction = {
+        Date : System.DateTime
+        Model : Model
+        Scenario : Scenario
+        IntervalKind : IntervalKind
+    }
 
-// type PredictionDataPoint =
-//     { Date : System.DateTime
-//       Icu : int
-//       IcuLowerBound : int
-//       IcuUpperBound : int
-//       Hospitalized : int
-//       HospitalizedLowerBound : int
-//       HospitalizedUpperBound : int
-//       Deceased : int
-//       DeceasedLowerBound : int
-//       DeceasedUpperBound : int
-//       DeceasedToDate : int
-//       DeceasedToDateLowerBound : int
-//       DeceasedToDateUpperBound : int }
+    type PredictionsMetadata = {
+        Models : Model list
+        Scenarios : Scenario list
+        IntervalKinds : IntervalKind list
+        Predictions : Prediction list
+    }
 
+    // type PredictionDataPoint =
+    //     { Date : System.DateTime
+    //       Icu : int
+    //       IcuLowerBound : int
+    //       IcuUpperBound : int
+    //       Hospitalized : int
+    //       HospitalizedLowerBound : int
+    //       HospitalizedUpperBound : int
+    //       Deceased : int
+    //       DeceasedLowerBound : int
+    //       DeceasedUpperBound : int
+    //       DeceasedToDate : int
+    //       DeceasedToDateLowerBound : int
+    //       DeceasedToDateUpperBound : int }
 
 module Transfer =
 
@@ -73,13 +74,15 @@ module Transfer =
     }
 
     type PredictionsMetadata = {
-        Models : Model list
-        Scenarios : Scenario list
-        IntervalKinds : IntervalKind list
+        Models : Domain.Model list
+        Scenarios : Domain.Scenario list
+        IntervalKinds : Domain.IntervalKind list
         Predictions : Prediction list
     }
 
-let loadPredictionsMetadata () =
+open Domain
+
+let loadPredictionsMetadata =
     asyncResult {
         let! data = DataLoader.makeDataLoader<Transfer.PredictionsMetadata> apiUrl ()
 

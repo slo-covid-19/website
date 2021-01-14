@@ -1,9 +1,11 @@
 module ModelPredictionsChart.Types
 
 open Types
-open Data.ModelPredictions
+open Data.ModelPredictions.Domain
 
 let translate = I18N.chartText "modelPredictions"
+
+type PredictionsMetadata = Data.ModelPredictions.Domain.PredictionsMetadata
 
 type Metric =
     | Icu
@@ -27,14 +29,13 @@ type SelectedDisplayOptions =
       Scenarios : Set<Scenario>
       IntervalKinds : Set<IntervalKind> }
 
-    static member Empty =
+    static member Default =
         { Models = Set.empty
           Scenarios = Set.empty
           IntervalKinds = Set.empty }
 
 type State =
     { StatsData : StatsData
-      PredictionsMetadata : RemoteData<PredictionsMetadata, string>
       SelectedDisplayOptions : SelectedDisplayOptions }
 
 type DisplayOption =
@@ -43,5 +44,4 @@ type DisplayOption =
     | IntervalKind of IntervalKind
 
 type Msg =
-    | PredictionsMetadataLoaded of Result<PredictionsMetadata, string>
-    | DisplayOptionChanged of DisplayOption * bool
+    | DisplayOptionChanged of DisplayOption
