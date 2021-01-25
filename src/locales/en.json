@@ -14,6 +14,7 @@
         "animation": "Animation",
         "faq": "FAQ",
         "about": "About",
+        "donate": "Donate!",
         "links": "Links",
         "github": "GitHub",
         "goToGraph": "Go to graph",
@@ -46,7 +47,7 @@
         "bubble": "Living in the bubble… How to limit contacts and not stay alone? 💭",
         "presentation": "How science helps decision makers - presentation in National Assembly",
         "weKnowWeDoNotKnow": "We know that data sometimes lies. How do we know, that we do (not) know? 🤔📉🧐📈🤷‍♂️🤷‍♀️",
-        "tests": "5 myths about tests ...",
+        "tests": "5 myths about tests …",
         "progressC19": "Typical progress of COVID-19. Hospitalization, intensive therapy and mortality.",
         "weeklyIncrease": "Weekly Increase on the 🇸🇮 map of municipalities and regions",
         "newsText": "Coronavirus World Map 🌍- active cases per 1M people",
@@ -253,13 +254,15 @@
             "confirmedCases": "Confirmed Cases",
             "activeCases": "Active Cases",
             "recovered": "Recovered",
-            "vaccinationAdministered": "Vaccinated",
+            "vaccinationAdministered": "Vaccinated 💉",
+            "vaccinationAdministered2nd": "Vaccinated 💉💉",
             "hospitalized": "Hospitalized",
             "hospitalAdmitted": "Admitted to Hospital",
             "hospitalDischarged": "Discharged from Hospital",
             "icu": "In ICU",
             "icuAdmitted": "Admitted to ICU",
             "icuDischarged": "Discharged from ICU",
+            "niVentilator": "On Ventilator (non-invasive)",
             "ventilator": "On Ventilator (intubated)",
             "ventilatorAdmitted": "Connected to Ventilator (intubated)",
             "ventilatorDischarged": "Disconnected from Ventilator (extubated)",
@@ -273,8 +276,8 @@
             "vaccinated": "People Vaccinated",
             "tests": "Tests Performed: PCR",
             "positivePct": "Share of Positive: PCR (%)",
-            "testsHAT": "Tests Performed: HAT",
-            "positivePctHAT": "Share of Positive: HAT (%)",
+            "testsHAT": "Tests Performed: RAT",
+            "positivePctHAT": "Share of Positive: RAT (%)",
             "hospitalAdmitted": "Admitted to Hospital",
             "hospitalDischarged": "Discharged from Hospital",
             "icuAdmitted": "Admitted to ICU",
@@ -283,13 +286,16 @@
         "deceased": {
             "title": "Deaths",
             "titleMenu": "Deaths",
-            "disclaimer": "Note: deceased by age data is provided weekly, therefore it is not complete for last two weeks.",
-            "deceasedToday": "Deaths per day",
-            "deceasedTodayRelative": "Deaths per day (relative)",
-            "deceasedToDate": "Deaths to date",
-            "deceasedToDateRelative": "Deaths to date (relative)",
-            "deceasedByAgeToday": "Deaths by age (daily)",
-            "deceasedByAgeTodayRelative": "Deaths by age (daily, relative)",
+            "disclaimer": "Note: deceased by age and retirement homes data is provided weekly, therefore it is not complete for last two weeks.",
+            "showToday": "Daily",
+            "showToDate": "To Date",
+            "showNormal": "Absolute",
+            "showPercent": "Proportion",
+            "deceasedHospitals": "Place of Death",
+            "deceasedByType": "Retirement Homes",
+            "deceasedByAge": "Age",
+            "deceased-rhoccupant": "Retirement Home Occupants",
+            "deceased-other": "Other",
             "deceased-icu": "ICU",
             "deceased-acute": "Acute Medical Unit",
             "deceased-care": "Care Hospital",
@@ -314,19 +320,28 @@
             "structure": "Structure",
             "byHospital": "By Hospital",
             "hospitalizedIn": "Hospitalized In:",
-            "care": "In Care",
+            "acute": "Acute Unit",
+            "care": "Nursing Unit",
             "admitted": "Admitted",
             "hospitalized": "Hospitalized",
-            "icu": "In ICU",
+            "icu": "ICU",
+            "niVentilator": "On Ventilator (non-invasive)",
             "ventilator": "On Ventilator (intubated)",
             "discharged": "Discharged",
             "deceased": "Died",
-            "icu-deceased": "Died (ICU)",
+            "icu-deceased": "Died",
+            "icu-admitted": "Admitted in ICU",
+            "icu-discharged": "Discharged from ICU",
+            "icu-other": "Without Ventilator",
             "allHospitals": "All Hospitals"
         },
+        "icuPatients": {
+            "title": "Intensive Care",
+            "titleMenu": "Intensive Care"
+        },
         "carePatients": {
-            "title": "Care Hospitals",
-            "titleMenu": "Care Hospitals"
+            "title": "Nursing Hospitals",
+            "titleMenu": "Nursing Hospitals"
         },
         "ratios": {
             "title": "Share of Serious Cases",
@@ -362,8 +377,12 @@
             "title": "Cases in Health Care and Retirement Homes, weekly",
             "titleMenu": "HC & RH - cases",
             "disclaimer": "Note: data for last week are not complete yet - share of health care employees may be smaller than actual.",
-            "all": "All",
+            "absolute": "Absolute",
             "relative": "Relative",
+            "structure": "Structure",
+            "healthcare": "Healh Care by Gender",
+            "healthcareMaleCases": "Health Care - Male",
+            "healthcareFemaleCases": "Health Care - Female",
             "healthcareEmployeesCases": "Health Care Employees",
             "rhOccupantCases": "Retirement Home Residents",
             "totalConfirmed": "All Confirmed",
@@ -373,8 +392,8 @@
             "title": "Testing",
             "titleMenu": "Testing",
             "disclaimer": "Note: From December 3, we do not received data per laboratory.",
-            "positiveSplit": "Positive PCR and HAT",
-            "positiveHAT": "Positive HAT",
+            "positiveSplit": "Positive PCR and RAT",
+            "positiveHAT": "Positive RAT",
             "positivePCR": "Positive PCR",
             "positiveTotal": "Positive Total",
             "totalPCR": "All: PCR",
@@ -977,7 +996,7 @@
         },
         "services": {
             "title": "Services",
-            "description": "Prohibition of all shops and services to consumers (exceptions: groceries, pharmacies, banks, post offices, ...)<br>The suspension of public transport (exception: taxi). Removal of some exceptions for border crossings."
+            "description": "Prohibition of all shops and services to consumers (exceptions: groceries, pharmacies, banks, post offices, …)<br>The suspension of public transport (exception: taxi). Removal of some exceptions for border crossings."
         },
         "planRelaxation": {
             "title": "Plan",
@@ -997,7 +1016,7 @@
         },
         "services2": {
             "title": "Services",
-            "description": "Prohibition of all shops and services to consumers (exceptions: groceries, pharmacies, banks, post offices, ...).<br>Relaxation of some restrictions on gathering and movement until 25.12. 20:00."
+            "description": "Prohibition of all shops and services to consumers (exceptions: groceries, pharmacies, banks, post offices, …).<br>Relaxation of some restrictions on gathering and movement until 25.12. 20:00."
         },
         "liftFoodMarkets2": {
             "title": "Markets",
@@ -1010,6 +1029,18 @@
         "planRelaxation2": {
             "title": "Plan",
             "description": "Government has accepted the revised plan of relaxation of measures in five phases."
+        },
+        "gym": {
+            "title": "Gym",
+            "description": "Closure of gyms, pools, sport facilities (with exceptions).<br>Closing of museums and galleries. Libraries open only for pick-up."
+        },
+        "liftRegions": {
+            "title": "Regions",
+            "description": "Relaxation: shops for children, museums, galleries, libraries and ski-resorts are open in some regions."
+        },
+        "liftSchools3": {
+            "title": "Schools 3",
+            "description": "Relaxation: kindergarten and elementary school up to 3rd grade in some regions."
         }
     },
     "days": {
@@ -1491,7 +1522,7 @@
         },
         "data-publish-time": {
             "question": "When do you publish the data? Why are the dates on the visualizations different?",
-            "answer": "Most data for the previous day is collected at 11:59 pm (tests, confirmed cases ...), and hospitalization data is mostly obtained by 9 am every day for all hospitals. **Our data is usually updated between 10.00 and 12.00.**\nWhen we publish updated daily data, it is available on all our distribution channels (CSV, REST, website), and we also report it on social networks ([Facebook](https://www.facebook.com/COVID19Sledilnik) and [Twitter](https://twitter.com/sledilnik))."
+            "answer": "Most data for the previous day is collected at 11:59 pm (tests, confirmed cases …), and hospitalization data is mostly obtained by 9 am every day for all hospitals. **Our data is usually updated between 10.00 and 12.00.**\nWhen we publish updated daily data, it is available on all our distribution channels (CSV, REST, website), and we also report it on social networks ([Facebook](https://www.facebook.com/COVID19Sledilnik) and [Twitter](https://twitter.com/sledilnik))."
         },
         "data-differences": {
             "question": "Several portals display numbers of infected people that are different from yours. Why?",
@@ -1507,7 +1538,7 @@
         },
         "data-recovered": {
             "question": "Why did you replace the number of *cured* with the number of *recovered* patients?",
-            "answer": "Sledilnik used to rely on official sources (Government of the Republic of Slovenia, media) for the number of cured people. Unfortunately, reports on when a person is totally cured from Covid-19 are scarce – for now, we only have few confirmed reports of \"cured patients\", and there is, as of yet, still no official definition of when a particular person is cured. A [COVID-19 national survey](https://covid19.biolab.si/) is currently underway at the *Institute of Microbiology and Immunology*, which will also, through voluntary sample testing, show how many people have already fallen ill and recovered from COVID-19. As it is not yet known what the potential consequences of COVID-19 could be (various studies are addressing this question and the results will not be known for a long time), and because health institutions are also talking about recovered rather than cured patients, we are thus changing both the terminology and the method of calculating the number of recoveries. See also [Do you keep an Active Case counter and do you know how many people are currently infected?](#data-active-cases))\n\nOn April 14, the Department of Health released [Priporočila za zaključek izolacije in vrnitev na delovno mesto (Recommendations for Discontinuing Isolation and Returning to Work)](https://www.zbornica-zveza.si/wp-content/uploads/2020/04/PRIPORO%C4%8CILO-Zaklju%C4%8Dek-izolacije-in-vrnitev-na-delovna-mesta-po-preboleli-bolezni-COVID-19.pdf) from which we can deduce when a person has recovered from the disease and can return to work. For people with symptoms, this is 14 days after the symptoms have subsided, and for healthcare professionals, a control swab is required after 14 days, which must be negative 2x in a row. The Government of the Republic of Slovenia regularly reports on discharges from the hospital, but we do not know if they have already recovered from the disease. The published recommendations indicate that these patients require two consecutive negative control swabs after discharge to home care in order to be considered able to return to work. [In its report](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf) the ECDC stated that *The 14-day incidence of reported COVID-19 cases in the EU/EEA and UK, providing an estimate of the prevalence of active cases in the population...* – so we chose the 14-day period as the time when the average confirmed case can still be counted as an *active case*.\n\nWe noticed that the [Worldometer](https://www.worldometers.info/coronavirus/#countries) was reporting recovery numbers, but unfortunately we were unable to obtain data on where this information was coming from. Also, some other sources simply combine survivors with the number of discharged patients from hospitals. Since we believe that these two categories are interchangeable, we have decided to present them separately; these are the *Discharged from Hospital* and *Recovered* indicators.\n\n*Note: The calculation of recoveries was changed on 9 May 2020. We now consider a patient has recovered in 14 days after their infection was confirmed (previously 21 days), so there was be a noticeable jump in the number of survivors. Please take this difference into account when estimating the number of survivors. A more detailed explanation of the changed calculation is available in the Medium article [Od potrjeno okuženih do prebolelih (From Confirmed Case to Recovery )](https://medium.com/@sledilnik/94c81674718e).*"
+            "answer": "Sledilnik used to rely on official sources (Government of the Republic of Slovenia, media) for the number of cured people. Unfortunately, reports on when a person is totally cured from Covid-19 are scarce – for now, we only have few confirmed reports of \"cured patients\", and there is, as of yet, still no official definition of when a particular person is cured. A [COVID-19 national survey](https://covid19.biolab.si/) is currently underway at the *Institute of Microbiology and Immunology*, which will also, through voluntary sample testing, show how many people have already fallen ill and recovered from COVID-19. As it is not yet known what the potential consequences of COVID-19 could be (various studies are addressing this question and the results will not be known for a long time), and because health institutions are also talking about recovered rather than cured patients, we are thus changing both the terminology and the method of calculating the number of recoveries. See also [Do you keep an Active Case counter and do you know how many people are currently infected?](#data-active-cases))\n\nOn April 14, the Department of Health released [Priporočila za zaključek izolacije in vrnitev na delovno mesto (Recommendations for Discontinuing Isolation and Returning to Work)](https://www.zbornica-zveza.si/wp-content/uploads/2020/04/PRIPORO%C4%8CILO-Zaklju%C4%8Dek-izolacije-in-vrnitev-na-delovna-mesta-po-preboleli-bolezni-COVID-19.pdf) from which we can deduce when a person has recovered from the disease and can return to work. For people with symptoms, this is 14 days after the symptoms have subsided, and for healthcare professionals, a control swab is required after 14 days, which must be negative 2x in a row. The Government of the Republic of Slovenia regularly reports on discharges from the hospital, but we do not know if they have already recovered from the disease. The published recommendations indicate that these patients require two consecutive negative control swabs after discharge to home care in order to be considered able to return to work. [In its report](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf) the ECDC stated that *The 14-day incidence of reported COVID-19 cases in the EU/EEA and UK, providing an estimate of the prevalence of active cases in the population…* – so we chose the 14-day period as the time when the average confirmed case can still be counted as an *active case*.\n\nWe noticed that the [Worldometer](https://www.worldometers.info/coronavirus/#countries) was reporting recovery numbers, but unfortunately we were unable to obtain data on where this information was coming from. Also, some other sources simply combine survivors with the number of discharged patients from hospitals. Since we believe that these two categories are interchangeable, we have decided to present them separately; these are the *Discharged from Hospital* and *Recovered* indicators.\n\n*Note: The calculation of recoveries was changed on 9 May 2020. We now consider a patient has recovered in 14 days after their infection was confirmed (previously 21 days), so there was be a noticeable jump in the number of survivors. Please take this difference into account when estimating the number of survivors. A more detailed explanation of the changed calculation is available in the Medium article [Od potrjeno okuženih do prebolelih (From Confirmed Case to Recovery )](https://medium.com/@sledilnik/94c81674718e).*"
         },
         "data-active-cases": {
             "question": "Do you keep an Active Case counter and do you know how many people are currently infected?",
@@ -1620,6 +1651,57 @@
         "how-to-help": {
             "question": "I would like to help, where can I begin?",
             "answer": "Contact us at info@sledilnik.org and briefly describe who you are and how you can contribute to the project. Warmly welcome to help."
+        }
+    },
+    "donation": {
+        "title": "I support Sledilnik",
+        "intro": "Here at the **Sledilnik non-profit scientific society** we want to invite you to support our work by donating according to your means. With your help, we will be able to continue processing and analysing datasets critical to the functioning of our society, making them publicly available, increasing awareness, and improving decision-making.\n\nYour contribution will help us continue doing what we do best: publicly offer open data and accessible analyses – creating a **better today and tomorrow for us all**. Thank you for caring!",
+        "bankDetails": {
+            "recipient": "Recipient",
+            "purposeCode": "Purpose code",
+            "purpose": "Purpose",
+            "reference": "Reference",
+            "iban": "IBAN Account",
+            "bank": "Bank",
+            "bankBicSwift": "Bank SWIFT/BIC"
+        },
+        "success": {
+            "title": "Thank you for your donation",
+            "description": "Your donation will help us with our future work.<br>We kindly ask you to encourage others to donate as well.",
+            "session": "Payment session ID:"
+        },
+        "onetime": {
+            "title": "One-time support",
+            "banktransfer": {
+                "description": "Our activities can also be supported **by bank transfer**. The payment instructions are as follows:"
+            },
+            "stripe": {
+                "description": "You can also make a one-off donation **by credit card**. Choose your donation amount below:",
+                "success": {
+                    "title": "Thank you for your one-time donation",
+                    "description": ""
+                }
+            }
+        },
+        "monthly": {
+            "title": "Monthly recurring donation",
+            "stripe": {
+                "description": "A regular monthly donation gives us a stable income and distributes your costs evenly throughout the year. Please choose your monthly amount below to pay **by credit card**:",
+                "donateButton": "{{amount}} per month",
+                "stopping": "You can stop your donation at any time. Just drop us a line at drustvo@sledilnik.org.",
+                "success": {
+                    "title": "Thank you for your monthly recurring donation",
+                    "description": "If you would like to stop your recurring donation please let us know at drustvo@sledilnik.org."
+                }
+            }
+        },
+        "companies": {
+            "title": "For companies",
+            "description": "Please contact us at drustvo@sledilnik.org to prepare a donation contract and/or other necessary documentation as required."
+        },
+        "other": {
+            "title": "Other ways of support",
+            "description": "For a few more ways to support us from within Slovenia you might want to check out the [Slovenian translation of this page](/sl/donate).\n\nWe are always grateful for suggestions and shares of our posts on [Twitter](https://twitter.com/sledilnik), [Facebook](https://fb.me/COVID19Sledilnik), [YouTube](https://www.youtube.com/channel/UCM_Sk2GZ8vTMiyBQ0SMHgJw/videos), [Instagram](https://www.instagram.com/sledilnik/) and other platforms, as well as new features and source code fixes on [GitHub](https://github.com/sledilnik).\n\nWe will appreciate it even more if you can grant us access to any open data that might be relevant for our analyses. \n\nIf you have a different proposal for how to support our activities or for how we could cooperate, please do not hesitate and contact us at drustvo@sledilnik.org - we will be happy to find a solution."
         }
     }
 }

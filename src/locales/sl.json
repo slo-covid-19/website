@@ -14,6 +14,7 @@
         "animation": "Animacija",
         "faq": "FAQ",
         "about": "O projektu",
+        "donate": "Podpri!",
         "links": "Povezave",
         "github": "GitHub",
         "goToGraph": "Pojdi na graf",
@@ -46,12 +47,12 @@
         "presentation": "Kako lahko znanost pomaga odločevalcem - predstavitev v Državnem zboru RS",
         "bubble": "Ostanimo v mehurčku… Kako v času epidemije omejiti stike in ne ostati sam? 💭",
         "weKnowWeDoNotKnow": "Vemo, da podatki včasih lažejo. Kako vemo, da (ne) vemo? 🤔📉🧐📈🤷‍♂️🤷‍♀️",
-        "tests": "5 mitov o testih...",
+        "tests": "5 mitov o testih…",
         "progressC19": "Običajen potek bolezni COVID-19. Hospitalizacije, intenzivna terapija in smrtnost.",
         "weeklyIncrease": "Tedenski prirast na zemljevidu 🇸🇮 po občinah in pokrajinah",
         "ostanizdrav": "Zakaj uporabljati aplikacijo #OstaniZdrav – v grafih 📈",
         "newsText": "Zemljevid sveta 🌍- stanje aktivnih primerov na 1M prebivalcev",
-        "restrictions": "(I)zbrani ukrepi in omejitve na enem mestu "
+        "restrictions": "(I)zbrani ukrepi in omejitve na enem mestu"
     },
     "infocard": {
         "vaccinationSummary": "Cepljenih oseb",
@@ -64,7 +65,7 @@
         "newCases7dInfo": "povprečje zadnjih 7 dni",
         "recoveredToDate": "Preboleli",
         "inHospital": "Hospitalizirani",
-        "icu": "V intenzivni enoti",
+        "icu": "V intenzivni terapiji",
         "deceasedToDate": "Umrli",
         "lastUpdated": "{{ date, %a., %e. %b. }}"
     },
@@ -640,6 +641,18 @@
         "planRelaxation2": {
             "title": "Načrt",
             "description": "Vlada sprejela popravljen načrt sproščanja ukrepov v petih fazah."
+        },
+        "gym": {
+            "title": "Fitnes",
+            "description": "Zaprejo se fitnesi, bazeni, športne dvorane (razen za izjeme).<br>Zaprejo se muzeji in galerije. Knjižnice dovoljene le za prevzem."
+        },
+        "liftRegions": {
+            "title": "Regije",
+            "description": "Sproščanje: v nekaterih regijah se odprejo trgovine za otroke, muzeji, galerije, knjižnice, smučišča."
+        },
+        "liftSchools3": {
+            "title": "OŠ 1-3",
+            "description": "Sproščanje: v nekaterih regijah se odpro vrtci in osnovna šola od 1. do 3. razreda."
         }
     },
     "phase": {
@@ -758,13 +771,15 @@
             "confirmedCases": "Potrjeni primeri",
             "activeCases": "Aktivni primeri",
             "recovered": "Preboleli",
-            "vaccinationAdministered": "Cepljeni",
+            "vaccinationAdministered": "Cepljeni 💉",
+            "vaccinationAdministered2nd": "Cepljeni 💉💉",
             "hospitalized": "Hospitalizirani",
             "hospitalAdmitted": "Sprejeti v bolnišnico",
             "hospitalDischarged": "Odpuščeni iz bolnišnice",
-            "icu": "V intenzivni enoti",
+            "icu": "V intenzivni terapiji",
             "icuAdmitted": "Sprejeti v intenzivno",
             "icuDischarged": "Odpuščeni iz intenzivne",
+            "niVentilator": "Na respiratorju (neinvazivno)",
             "ventilator": "Na respiratorju (intubirani)",
             "ventilatorAdmitted": "Priklopljeni na respirator (intubirani)",
             "ventilatorDischarged": "Odklopljeni od respiratorja (ekstubirani)",
@@ -788,15 +803,16 @@
         "deceased": {
             "title": "Umrli",
             "titleMenu": "Umrli",
-            "disclaimer": "Opomba: podatke o umrlih po starosti prejemamo tedensko, zato so za zadnja dva tedna nepopolni.",
-            "deceasedToday": "Umrli na dan",
-            "deceasedTodayRelative": "Umrli na dan (relativno)",
-            "deceasedToDate": "Umrli",
-            "deceasedToDateRelative": "Umrli (relativno)",
-            "deceasedByAgeToDate": "Po starosti",
-            "deceasedByAgeToDateRelative": "Po starosti (rel.)",
-            "deceasedByAgeToday": "Po starosti na dan",
-            "deceasedByAgeTodayRelative": "Po starosti na dan (rel.)",
+            "disclaimer": "Opomba: podatke o umrlih po starosti in v DSO prejemamo tedensko, zato so za zadnja dva tedna nepopolni.",
+            "showToday": "Na dan",
+            "showToDate": "Skupaj",
+            "showNormal": "Absolutno",
+            "showPercent": "Delež",
+            "deceasedHospitals": "Kraj smrti",
+            "deceasedByType": "DSO status",
+            "deceasedByAge": "Starost",
+            "deceased-rhoccupant": "Oskrbovanci domov za starejše občane",
+            "deceased-other": "Ostali",
             "deceased-icu": "Intenzivna terapija",
             "deceased-acute": "Akutni oddelek",
             "deceased-care": "Negovalni oddelek",
@@ -808,7 +824,7 @@
             "titleMenu": "Primeri",
             "active": "Aktivni",
             "hospitalized": "Hospitalizirani",
-            "icu": "V intenzivni enoti",
+            "icu": "V intenzivni terapiji",
             "ventilator": "Na respiratorju (intubirani)",
             "recovered": "Preboleli",
             "deceased-icu": "Umrli (intenzivna terapija)",
@@ -821,15 +837,24 @@
             "byHospital": "Po bolnišnicah",
             "allHospitals": "Vse bolnišnice",
             "hospitalizedIn": "Hospitalizirani v:",
-            "care": "V oskrbi",
+            "acute": "Akutni oddelek",
+            "care": "Negovalni oddelek",
             "admitted": "Sprejeti",
             "hospitalized": "Hospitalizirani",
-            "icu": "V intenzivni enoti",
+            "icu": "Intenzivna terapija",
+            "niVentilator": "Na respiratorju (neinvazivno)",
             "ventilator": "Na respiratorju (intubirani)",
             "discharged": "Odpuščeni",
             "deceased": "Umrli",
-            "icu-deceased": "Umrli (intenzivna terapija)",
+            "icu-deceased": "Umrli",
+            "icu-admitted": "Sprejeti v EIT",
+            "icu-discharged": "Odpuščeni iz EIT",
+            "icu-other": "Brez respiratorja",
             "structure": "Struktura"
+        },
+        "icuPatients": {
+            "title": "Intenzivna terapija",
+            "titleMenu": "Intenzivna terapija"
         },
         "carePatients": {
             "title": "Negovalne bolnišnice",
@@ -842,15 +867,15 @@
             "hospitalizations": "Hospitalizirani",
             "mortality": "Smrtnost",
             "hospitalCases": "Hospitalizirani",
-            "icuCases": "V intenzivni enoti",
+            "icuCases": "V intenzivni terapiji",
             "ventilatorCases": "Na respiratorju (intubirani)",
             "deceasedCases": "Umrli",
-            "icuHospital": "V intenzivni enoti",
+            "icuHospital": "V intenzivni terapiji",
             "ventilatorHospital": "Na respiratorju (intubirani)",
             "deceasedHospital": "Umrli",
             "hospitalMortality": "Smrtnost v bolnišnici",
-            "icuMortality": "Smrtnost v intenzivni enoti",
-            "icuDeceasedShare": "Delež smrti v intenzivni enoti",
+            "icuMortality": "Smrtnost v enoti intenzivne terapije",
+            "icuDeceasedShare": "Delež smrti v enoti intenzivne terapije",
             "hospitalDeceasedShare": "Delež smrti v bolnišnici"
         },
         "hCenters": {
@@ -964,8 +989,12 @@
             "title": "Primeri v zdravstvu in domovih za starejše občane, tedensko",
             "titleMenu": "Zdravstvo in DSO - primeri",
             "disclaimer": "Opomba: podatki za zadnji teden še niso dokončni, zato je delež zdravstvenih delavcev lahko manjši kot je dejansko.",
-            "all": "Skupaj",
+            "absolute": "Absolutno",
             "relative": "Relativno",
+            "structure": "Struktura",
+            "healthcare": "Zdravstvo po spolu",
+            "healthcareMaleCases": "Zdravstvo - moški",
+            "healthcareFemaleCases": "Zdravstvo - ženske",
             "healthcareEmployeesCases": "Zaposleni v zdravstvu",
             "rhOccupantCases": "Oskrbovanci domov za starejše občane",
             "totalConfirmed": "Vsi potrjeni",
@@ -1008,7 +1037,7 @@
             "mortalityOfConfirmedCases": "Smrtnost potrjenih primerov",
             "relativeIncrease": "Tedenski prirast",
             "disclaimerRegion": "Opomba: podatke o umrlih po regijah prejemamo tedensko, zato so za zadnja dva tedna nepopolni. Zaradi tega prihaja do razlike med skupnim številom umrlih in podatki na zemljevidu.",
-            "disclaimer": "Opomba: Podatke o umrlih po občinah od 12. decembra ne prejemamo, že pred tem pa so bili pomankljivi. Zaradi tega prihaja do velike razlike med skupnim številom umrlih in podatki na zemljevidu."
+            "disclaimer": "Opomba: Podatkov o umrlih po občinah od 12. decembra ne prejemamo, že pred tem pa so bili pomankljivi. Zaradi tega prihaja do velike razlike med skupnim številom umrlih in podatki na zemljevidu."
         },
         "rmap": {
             "title": "Zemljevid po regijah",
@@ -1272,7 +1301,7 @@
         "cases_rh_occupant_confirmed_todate": "PO - oskrbovanec DSO (skupaj)",
         "cases_unclassified_confirmed_todate": "PO - ostali (skupaj)",
         "state_in_hospital": "Hospitalizirani",
-        "state_icu": "V intenzivni enoti",
+        "state_icu": "V intenzivni terapiji",
         "state_critical": "Na respiratorju (intubirani)",
         "state_deceased_todate": "Umrli (skupaj)",
         "state_in_hospital_todate": "Hospitalizirani (skupaj)",
@@ -1504,7 +1533,7 @@
         },
         "data-collection": {
             "question": "Kako zbirate in urejate podatke?",
-            "answer": "[Bazo podatkov](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=0) urejamo s podatki NIJZ (po kategorijah). Podatke po regijah in starosti kdaj tudi kasneje dopolnjujemo in navzkrižno preverjamo, ko se spremenijo zaradi epidemioloških raziskav. Podatke o občinah sledimo v [tabeli Kraji](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=598557107).\n\nUrejanje podatkov bolnišnične oskrbe – [tabela Pacienti](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=918589010):\n\n- Dobivamo dnevna poročila in spremljamo objave vseh bolnišnic za COVID-19 (UKC Ljubljana, UKC Maribor, UK Golnik, SB Celje) – okoli 8h.\n\n- Spremljamo število hospitaliziranih: vsi oddelki, v intenzivni enoti in na respiratorju (intubirani).\n\n- Iz podatkov evidentiramo tudi prehode (sprejem/odpust) med posameznimi stanji (kadar je to mogoče zaznati).\n\n- Kjer so podatki o prehodih (sprejem/odpust) nepopolni, s sklepanjem določimo vrednosti (uporabimo formulo).\n\n- Vsi viri in sklepanja so zabeleženi kot komentar v posameznih celicah (možnost preverjanja).\n\n- Podatke primerjamo s sumarnimi podatki o hospitaliziranih in intenzivni terapiji, ki jih objavlja Vlada RS."
+            "answer": "[Bazo podatkov](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=0) urejamo s podatki NIJZ (po kategorijah). Podatke po regijah in starosti kdaj tudi kasneje dopolnjujemo in navzkrižno preverjamo, ko se spremenijo zaradi epidemioloških raziskav. Podatkom o občinah sledimo v [tabeli Kraji](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=598557107).\n\nUrejanje podatkov bolnišnične oskrbe – [tabela Pacienti](https://docs.google.com/spreadsheets/d/1N1qLMoWyi3WFGhIpPFzKsFmVE0IwNP3elb_c18t2DwY/edit#gid=918589010):\n\n- Dobivamo dnevna poročila in spremljamo objave vseh bolnišnic za COVID-19 (UKC Ljubljana, UKC Maribor, UK Golnik, SB Celje) – okoli 8h.\n\n- Spremljamo število hospitaliziranih: vsi oddelki, v enoti intenzivne terapije in na respiratorju (intubirani).\n\n- Iz podatkov evidentiramo tudi prehode (sprejem/odpust) med posameznimi stanji (kadar je to mogoče zaznati).\n\n- Kjer so podatki o prehodih (sprejem/odpust) nepopolni, s sklepanjem določimo vrednosti (uporabimo formulo).\n\n- Vsi viri in sklepanja so zabeleženi kot komentar v posameznih celicah (možnost preverjanja).\n\n- Podatke primerjamo s sumarnimi podatki o hospitaliziranih in intenzivni terapiji, ki jih objavlja Vlada RS."
         },
         "data-publish-time": {
             "question": "Kdaj objavljate podatke? Zakaj so nekateri podatki osveženi z današnjim dnem, drugi pa imajo včerajšnji datum?",
@@ -1524,11 +1553,11 @@
         },
         "data-recovered": {
             "question": "Zakaj tako dolgo niste prikazovali števila ozdravelih in zakaj zdaj namesto teh prikazujete prebolele?",
-            "answer": "Sledilnik se je pri številu ozdravelih zanašal na uradne vire (Vlada RS, mediji). Poročanja o ozdravelih so žal še vedno redka – za zdaj imamo samo par potrjenih virov o \"ozdravelih\", rednih podatkov in uradnih virov pa ni, kakor tudi ne uradne defincije, kdaj je določena oseba ozdravela. V okviru Inštituta za mikrobiologijo in imunologijo je potekala [nacionalna raziskava o COVID-19](https://covid19.biolab.si/), ki bo pokazala tudi, koliko ljudi je bolezen COVID-19 že prebolelo. Ker trenutno še ni znano, kakšne so morebitne posledice prebolele bolezni COVID-19 (s tem se ukvarjajo različne študije, rezultati pa še dolgo ne bodo znani), in ker tudi zdravstvene institucije govorijo o preboleli bolezni (in ne o ozdravelih), smo skladno s tem spremenili tako terminologijo kot način izračunavanja števila *aktivnih* (trenutno stanje potrjeno okuženih) in *prebolelih* (skupaj). Gl. tudi vprašanje [Ali vodite števec aktivnih primerov oz. ali veste, koliko je trenutno okuženih oseb?](#data-active-cases).\n\nMinistrstvo za zdravje je 14. aprila objavilo [Priporočila za zaključek izolacije in vrnitev na delovno mesto](https://www.zbornica-zveza.si/wp-content/uploads/2020/04/PRIPORO%C4%8CILO-Zaklju%C4%8Dek-izolacije-in-vrnitev-na-delovna-mesta-po-preboleli-bolezni-COVID-19.pdf), iz katerih lahko razberemo, kdaj se za osebo sklepa, da je prebolela okužbo in se lahko vrne na delo. Za osebe s simptomi je to 14 dni po umiritvi simptomov, za zdravstvene delavce je po 14 dneh obvezen kontrolni bris, ki mora biti negativen 2x zapored. Vlada RS sicer redno poroča o odpuščenih iz bolnišnice, za katere pa ne vemo, ali so res že preboleli bolezen. Iz objavljenih priporočil je razvidno, da sta pri teh bolnikih po odpustu v domačo oskrbo potrebna dva zaporedna negativna kontrolna brisa, da bi se oseba štela za sposobno vrnitve na delo. ECDC je v svojem [poročilu](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf) navedla: *The 14-day incidence of reported COVID-19 cases in the EU/EEA and UK, providing an estimate of the prevalence of active cases in the population...*, zato smo izbrali 14-dnevno obdobje kot povprečno trajanje okužbe, torej čas, ko je potrjen primer aktiven.\n\nOpazili smo, da [Worldometer](https://www.worldometers.info/coronavirus/#countries) poroča o številu okrevanj, a žal nam podatka, od kod črpajo te informacije, ni uspelo pridobiti. Tudi nekateri drugi viri preprosto združujejo prebolele osebe s številom odpuščenih bolnikov iz bolnišnic. Ker menimo, da ta dva podatka ne kažeta enakega stanja bolezni, smo se odločili, da jih prikazujemo ločeno; to sta  kazalnika **Odpuščeni iz bolnišnice** in **Preboleli**.\n\n*Opomba: izračun prebolelih smo spremenili 9. 5. 2020, in sicer izračunavamo prebolele zdaj po 14-dnevnem obdobju od potrditve primera (prej 21 dni), zato je bil opazen skok v številu prebolelih. Prosimo, da v oceni števila prebolelih upoštevate to razliko v izračunu. Podrobnejša razlaga spremenjenega izračunavanja je na voljo v članku na Mediumu [Od potrjeno okuženih do prebolelih](https://medium.com/@sledilnik/94c81674718e).*"
+            "answer": "Sledilnik se je pri številu ozdravelih zanašal na uradne vire (Vlada RS, mediji). Poročanja o ozdravelih so žal še vedno redka – za zdaj imamo samo par potrjenih virov o \"ozdravelih\", rednih podatkov in uradnih virov pa ni, kakor tudi ne uradne defincije, kdaj je določena oseba ozdravela. V okviru Inštituta za mikrobiologijo in imunologijo je potekala [nacionalna raziskava o COVID-19](https://covid19.biolab.si/), ki bo pokazala tudi, koliko ljudi je bolezen COVID-19 že prebolelo. Ker trenutno še ni znano, kakšne so morebitne posledice prebolele bolezni COVID-19 (s tem se ukvarjajo različne študije, rezultati pa še dolgo ne bodo znani), in ker tudi zdravstvene institucije govorijo o preboleli bolezni (in ne o ozdravelih), smo skladno s tem spremenili tako terminologijo kot način izračunavanja števila *aktivnih* (trenutno stanje potrjeno okuženih) in *prebolelih* (skupaj). Gl. tudi vprašanje [Ali vodite števec aktivnih primerov oz. ali veste, koliko je trenutno okuženih oseb?](#data-active-cases).\n\nMinistrstvo za zdravje je 14. aprila objavilo [Priporočila za zaključek izolacije in vrnitev na delovno mesto](https://www.zbornica-zveza.si/wp-content/uploads/2020/04/PRIPORO%C4%8CILO-Zaklju%C4%8Dek-izolacije-in-vrnitev-na-delovna-mesta-po-preboleli-bolezni-COVID-19.pdf), iz katerih lahko razberemo, kdaj se za osebo sklepa, da je prebolela okužbo in se lahko vrne na delo. Za osebe s simptomi je to 14 dni po umiritvi simptomov, za zdravstvene delavce je po 14 dneh obvezen kontrolni bris, ki mora biti negativen 2x zapored. Vlada RS sicer redno poroča o odpuščenih iz bolnišnice, za katere pa ne vemo, ali so res že preboleli bolezen. Iz objavljenih priporočil je razvidno, da sta pri teh bolnikih po odpustu v domačo oskrbo potrebna dva zaporedna negativna kontrolna brisa, da bi se oseba štela za sposobno vrnitve na delo. ECDC je v svojem [poročilu](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf) navedla: *The 14-day incidence of reported COVID-19 cases in the EU/EEA and UK, providing an estimate of the prevalence of active cases in the population…*, zato smo izbrali 14-dnevno obdobje kot povprečno trajanje okužbe, torej čas, ko je potrjen primer aktiven.\n\nOpazili smo, da [Worldometer](https://www.worldometers.info/coronavirus/#countries) poroča o številu okrevanj, a žal nam podatka, od kod črpajo te informacije, ni uspelo pridobiti. Tudi nekateri drugi viri preprosto združujejo prebolele osebe s številom odpuščenih bolnikov iz bolnišnic. Ker menimo, da ta dva podatka ne kažeta enakega stanja bolezni, smo se odločili, da jih prikazujemo ločeno; to sta kazalnika **Odpuščeni iz bolnišnice** in **Preboleli**.\n\n*Opomba: izračun prebolelih smo spremenili 9. 5. 2020, in sicer izračunavamo prebolele zdaj po 14-dnevnem obdobju od potrditve primera (prej 21 dni), zato je bil opazen skok v številu prebolelih. Prosimo, da v oceni števila prebolelih upoštevate to razliko v izračunu. Podrobnejša razlaga spremenjenega izračunavanja je na voljo v članku na Mediumu [Od potrjeno okuženih do prebolelih](https://medium.com/@sledilnik/94c81674718e).*"
         },
         "data-active-cases": {
             "question": "Ali vodite števec aktivnih primerih oz. ali veste, koliko je trenutno okuženih oseb?",
-            "answer": "Da, od konca aprila naprej grafično prikazujemo tudi te kazalnike. [Graf Stanje COVID-19 v Sloveniji](/sl/stats#metrics-comparison-chart) kaže med drugim tudi sliko potrjenih in aktivnih primerov. Z izbiro pogleda **Aktivni** (zgoraj levo) lahko vidimo število aktivnih primerov in posebej še število hospitaliziranih, v intenzivni enoti ter na respiratorju (intubirani). S spremenitvijo prikaza *Aktivnih* v prikaz **Na dan** lahko vidimo podrobnosti stanja aktivnih oz. potrjenih primerov po posameznih dnevih (testiranja, potrjeni primeri, sprejeti v bolnišnico in odpuščeni, sprejeti v intenzivno enoto in odpuščeni ...), če pa izberemo prikaz **Skupaj**, lahko poleg drugih podatkov vidimo tudi število prebolelih.\n\nPrikaz **7-dnevno povprečje** kaže povprečje zadnjih sedmih dni za izbrane kazalnike spodaj (Testiranja, Potrjeni primeri, Sprejeti v bolnišnico ...); ker se to računa za zadnjih 7 dni, je ob prehodu z miško prikazan datum na sredini tedna.\n\nIzbor kazalnikov pod grafom je odvisen od posameznega prikaza.\n\nKazalnika *Aktivni primeri* in *Preboleli* nista podatka, pridobljena iz javnih virov; oba kažeta na osnovi uradnih podatkov izračunano vrednost. Vrednost *Aktivni primeri* je izračunana s preprostim odštevanjem uradnih podatkov za relevantno kategorijo, vrednost *Preboleli (skupaj)* odslikava stanje vseh potrjenih primerov pred dvema tednoma (minus umrli). \n\nŠtevilo prebolelih je preprosta ocena, ki temelji na vrednosti vseh potrjenih primerov v preteklosti na podlagi domneve, da se bolezen **povprečno preboli najkasneje v 14 dneh** (vir: [ECDC poročilo](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf)); tako je število prebolelih na določen dan enako številu vseh potrjenih primerov dva tedna pred danim datumom, od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Ocena je poenostavljena v smislu, da ne upošteva primerov resnejših dolgotrajnih komplikacij bolezni COVID-19. \nSicer pa si lahko več o infektivnosti in prebolelosti preberete v prispevku konzilija Klinike za infekcijske bolezni in vročinska stanja, UKCL, [Trajanje izolacije bolnikov s covid-19](https://www.mf.uni-lj.si/novice/trajanje-izolacije-bolnikov-s-covid-19?q=%2Fnovice%2Ftrajanje-izolacije-bolnikov-s-covid-19), ki prikazuje dosedanje dokaze o trajanju infektivnosti SARS-CoV-2 in kdaj je varno prekiniti previdnostne ukrepe za izolacijo.\n\n*Opomba: izračun prebolelih smo spremenili 9. 5. 2020, in sicer izračunavamo prebolele zdaj po 14-dnevnem obdobju od potrditve primera (prej 21 dni), zato je bil opazen skok v številu prebolelih. Prosimo, da v oceni števila prebolelih upoštevate to razliko v izračunu. Podrobnejša razlaga spremenjenega izračunavanja je na voljo v članku na Mediumu [Od potrjeno okuženih do prebolelih](https://medium.com/@sledilnik/94c81674718e).*\n\nFormula za izračun vrednosti:\n- Preboleli (skupaj) = Potrjeni primeri (skupaj) pred 14 dnevi – Umrli (skupaj) do dneva izračuna\n\n- Aktivni primeri = Potrjeni primeri (skupaj) − Preboleli (skupaj) − Umrli (skupaj)"
+            "answer": "Da, od konca aprila naprej grafično prikazujemo tudi te kazalnike. [Graf Stanje COVID-19 v Sloveniji](/sl/stats#metrics-comparison-chart) kaže med drugim tudi sliko potrjenih in aktivnih primerov. Z izbiro pogleda **Aktivni** (zgoraj levo) lahko vidimo število aktivnih primerov in posebej še število hospitaliziranih, v enoti intenzivne terapije ter na respiratorju (intubirani). S spremenitvijo prikaza *Aktivnih* v prikaz **Na dan** lahko vidimo podrobnosti stanja aktivnih oz. potrjenih primerov po posameznih dnevih (testiranja, potrjeni primeri, sprejeti v bolnišnico in odpuščeni, sprejeti v intenzivno enoto in odpuščeni ...), če pa izberemo prikaz **Skupaj**, lahko poleg drugih podatkov vidimo tudi število prebolelih.\n\nPrikaz **7-dnevno povprečje** kaže povprečje zadnjih sedmih dni za izbrane kazalnike spodaj (Testiranja, Potrjeni primeri, Sprejeti v bolnišnico ...); ker se to računa za zadnjih 7 dni, je ob prehodu z miško prikazan datum na sredini tedna.\n\nIzbor kazalnikov pod grafom je odvisen od posameznega prikaza.\n\nKazalnika *Aktivni primeri* in *Preboleli* nista podatka, pridobljena iz javnih virov; oba kažeta na osnovi uradnih podatkov izračunano vrednost. Vrednost *Aktivni primeri* je izračunana s preprostim odštevanjem uradnih podatkov za relevantno kategorijo, vrednost *Preboleli (skupaj)* odslikava stanje vseh potrjenih primerov pred dvema tednoma (minus umrli). \n\nŠtevilo prebolelih je preprosta ocena, ki temelji na vrednosti vseh potrjenih primerov v preteklosti na podlagi domneve, da se bolezen **povprečno preboli najkasneje v 14 dneh** (vir: [ECDC poročilo](https://www.ecdc.europa.eu/sites/default/files/documents/covid-19-rapid-risk-assessment-coronavirus-disease-2019-ninth-update-23-april-2020.pdf)); tako je število prebolelih na določen dan enako številu vseh potrjenih primerov dva tedna pred danim datumom, od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Ocena je poenostavljena v smislu, da ne upošteva primerov resnejših dolgotrajnih komplikacij bolezni COVID-19. \nSicer pa si lahko več o infektivnosti in prebolelosti preberete v prispevku konzilija Klinike za infekcijske bolezni in vročinska stanja, UKCL, [Trajanje izolacije bolnikov s covid-19](https://www.mf.uni-lj.si/novice/trajanje-izolacije-bolnikov-s-covid-19?q=%2Fnovice%2Ftrajanje-izolacije-bolnikov-s-covid-19), ki prikazuje dosedanje dokaze o trajanju infektivnosti SARS-CoV-2 in kdaj je varno prekiniti previdnostne ukrepe za izolacijo.\n\n*Opomba: izračun prebolelih smo spremenili 9. 5. 2020, in sicer izračunavamo prebolele zdaj po 14-dnevnem obdobju od potrditve primera (prej 21 dni), zato je bil opazen skok v številu prebolelih. Prosimo, da v oceni števila prebolelih upoštevate to razliko v izračunu. Podrobnejša razlaga spremenjenega izračunavanja je na voljo v članku na Mediumu [Od potrjeno okuženih do prebolelih](https://medium.com/@sledilnik/94c81674718e).*\n\nFormula za izračun vrednosti:\n- Preboleli (skupaj) = Potrjeni primeri (skupaj) pred 14 dnevi – Umrli (skupaj) do dneva izračuna\n\n- Aktivni primeri = Potrjeni primeri (skupaj) − Preboleli (skupaj) − Umrli (skupaj)"
         },
         "data-contribute": {
             "question": "Kako se lahko uporabniki aktivno vključimo v oddajo podatkov? Kako lahko sodelujem?",
@@ -1544,23 +1573,23 @@
         },
         "chart-infocard-percent": {
             "question": "Kaj pomenijo odstotki, ki se pojavljajo v informativnih okvirčkih na vrhu strani?",
-            "answer": "Gre za odstotno stopnjo rasti na današnji dan za dano kategorijo glede na prejšnji dan. Če je, recimo, včeraj bilo v intenzivni enoti 16 oseb, danes pa so sprejeli še štiri, je to 25 % več glede na včerajšnje stanje."
+            "answer": "Gre za odstotno stopnjo rasti na današnji dan za dano kategorijo glede na prejšnji dan. Če je, recimo, včeraj bilo v enoti intenzivne terapije 16 oseb, danes pa so sprejeli še štiri, je to 25 % več glede na včerajšnje stanje."
         },
         "chart-infocard-phase": {
             "question": "Kaj pomenijo faze, ki se pojavljajo v nekaterih informativnih okvirčkih na vrhu strani?",
-            "answer": "Vlada RS je 6. 10. 2020 predstavila [načrt in ukrepe za zajezitev novega vala okužb s koronavirusom](https://www.gov.si/novice/2020-10-06-predsednik-vlade-janez-jansa-predstavil-nacrt-in-ukrepe-za-2-val-koronavirusa/). Ta ima **tri faze**. Vsaka faza nam pove, katere ukrepe moramo sprejeti, da bi zajezili širitev okužb. *Uradna verzija ukrepov je na voljo na tej [povezavi](https://www.gov.si/assets/vlada/Fotografije/PV/10-2020/ukrepi.pptx), preglednejši infogram pa [tukaj](https://infogram.com/nacrt_ukrepov_2_val-1h9j6q3y1y852gz).*\n**Faze temeljijo na treh dejavnikih, ki jih vključno s številko faze prikazujejo posamezne infokartice na vrhu Sledilnikove strani**:\n* Število pozitivnih prebivalcev na COVID-19 na 100.000 prebivalcev v okviru zadnjih 14 dni. Podatek je prikazan na infokartici *14-dnevna pojavnost*.\n* Število obolelih v bolnišnicah. Podatek je prikazan na infokartici *Hospitalizirani*.\n* Število obolelih v v enoti za intenzivno terapijo. Podatek je prikazan na infokartici *V intenzivni enoti*.\n**Zelena faza** ni posebej opredeljena. To je faza pripravljenosti, v kateri se zavedamo, da bo koronavirus še nekaj časa med nami, zato se morajo upoštevati splošni higienski ukrepi – razkuževanje, nošenje maske in ohranjanje varnostne razdalje; epidemiološke služba deluje normalno v skladu z ZNB. NIJZ je pripravil [splošna priporočila za obdobje sproščanja ukrepov](https://www.nijz.si/sl/preprecevanje-okuzbe-z-virusom-sars-cov-2-v-obdobju-sproscanja-ukrepov), ki jih je smiselno upoštevati ves čas.\n\n**Oranžna faza** je sestavljena iz treh paketov ukrepov glede na stanje vseh treh dejavnikov.\n\n1. paket: **> 40** (14-dnevna pojavnost) **> 60** (hospitalizirani) **> 15** (v intenzivni enoti). Ukrepi: omejitev zbiranja 10/50/500; obvezne maske v zaprtih prostorih, na JPP in v gneči na prostem; časovna omejitev dela gostinskih lokalov; obvezni testi in karantene za [nevarne države](sl/stats#europe-chart); priporočeno delo od doma; posamične prepovedi obiskov v ogroženih domovih za ostarele.\n2. paket: **> 80** (14-dnevna pojavnost) **> 100** (hospitalizirani) **> 20** (v intenzivni enoti). Ukrepi: strežba samo sedečim za mizami, razredčitev miz v lokalih; zbiranje do 10 ljudi javno in zasebno (izjema: verski obredi in poroke; nadzorovane javne kulturne in športne prireditve ob upoštevanju ukrepov); prireditve brez zakusk; obvezna uporaba razkuževalnih sredstev za roke v skupnih prostorih večstanovanjskih stavb ter poslovnih stavb (obvezna namestitev razpršilnikov za razkužila); omejitev števila oseb v zaprtih javnih prostorih (trgovine, banke, pošte, uradi ipd.); prepoved obiskov v domovih za ostarele in bolnišnicah v posameznih okoljih/občinah.\n3. paket: **> 120** (14-dnevna pojavnost) **> 180** (hospitalizirani) **> 30** (v intenzivni enoti). Ukrepi: zapora/karantena posameznih občin ali regij; splošna prepoved obiskov v bolnišnicah in zavodih; zaprtje gostinskih lokalov; zaprtje fitnes centrov in športnih objektov za amaterje, za skupinske športe; omejitev delovanja frizerskih in kozmetičnih salonov na največ eno stranko na prostor; prepoved vseh javnih in kulturnih prireditev ter verskih obredov in porok v posameznih občinah ali regijah; zaprtje nenujne zdravstvene in zobozdravstvene dejavnosti.\n**Rdeča faza** je sestavljena iz treh paketov ukrepov glede na stanje vseh treh dejavnikov.\n\n1. paket: **> 140** (14-dnevna pojavnost) **> 250** (hospitalizirani) **> 50** (v intenzivni enoti). Ukrepi: zaprtje trgovskih centrov; šola na daljavo za srednje šole in univerze; zaprtje kulturnih ustanov; splošna prepoved verskih obredov in porok s prisotnimi gosti.\n2. paket: **> 170** (14-dnevna pojavnost) **> 300** (hospitalizirani) **> 50** (v intenzivni enoti). Ukrepi: šola na daljavo za vse; posebni dodatni sloti za starejše; zaprtje frizerskih in kozmetičnih salonov; zaprtje hotelov; zaprtje športnih objektov za amaterje za individualne športe ter za športno dejavnost otrok in mladostnikov; omejitev gibanja med 22.30 in 5. uro.\n3. paket: **> xxx** (14-dnevna pojavnost) **> 360** (hospitalizirani) **> 60** (v intenzivni enoti). Ukrepi: omejitev gibanja med občinami; zaprtje vrtcev; zaustavitev javnega prometa; zaprtje meja (razen tovorni promet in nujni prehodi); omejitev izhodov razen nujnih izjem; zapiranje posameznih gospodarskih dejavnosti. (V veljavi tudi vsi drugi sektorski ukrepi državnega načrta.)\nVsi trenutno veljavni ukrepi in omejitve so zbrani na strani [Ukrepi in omejitve](/sl/restrictions)."
+            "answer": "Vlada RS je 6. 10. 2020 predstavila [načrt in ukrepe za zajezitev novega vala okužb s koronavirusom](https://www.gov.si/novice/2020-10-06-predsednik-vlade-janez-jansa-predstavil-nacrt-in-ukrepe-za-2-val-koronavirusa/). Ta ima **tri faze**. Vsaka faza nam pove, katere ukrepe moramo sprejeti, da bi zajezili širitev okužb. *Uradna verzija ukrepov je na voljo na tej [povezavi](https://www.gov.si/assets/vlada/Fotografije/PV/10-2020/ukrepi.pptx), preglednejši infogram pa [tukaj](https://infogram.com/nacrt_ukrepov_2_val-1h9j6q3y1y852gz).*\n**Faze temeljijo na treh dejavnikih, ki jih vključno s številko faze prikazujejo posamezne infokartice na vrhu Sledilnikove strani**:\n* Število pozitivnih prebivalcev na COVID-19 na 100.000 prebivalcev v okviru zadnjih 14 dni. Podatek je prikazan na infokartici *14-dnevna pojavnost*.\n* Število obolelih v bolnišnicah. Podatek je prikazan na infokartici *Hospitalizirani*.\n* Število obolelih v v enoti intenzivne terapije. Podatek je prikazan na infokartici *V intenzivni terapiji*.\n**Zelena faza** ni posebej opredeljena. To je faza pripravljenosti, v kateri se zavedamo, da bo koronavirus še nekaj časa med nami, zato se morajo upoštevati splošni higienski ukrepi – razkuževanje, nošenje maske in ohranjanje varnostne razdalje; epidemiološke služba deluje normalno v skladu z ZNB. NIJZ je pripravil [splošna priporočila za obdobje sproščanja ukrepov](https://www.nijz.si/sl/preprecevanje-okuzbe-z-virusom-sars-cov-2-v-obdobju-sproscanja-ukrepov), ki jih je smiselno upoštevati ves čas.\n\n**Oranžna faza** je sestavljena iz treh paketov ukrepov glede na stanje vseh treh dejavnikov.\n\n1. paket: **> 40** (14-dnevna pojavnost) **> 60** (hospitalizirani) **> 15** (v enoti intenzivne terapije). Ukrepi: omejitev zbiranja 10/50/500; obvezne maske v zaprtih prostorih, na JPP in v gneči na prostem; časovna omejitev dela gostinskih lokalov; obvezni testi in karantene za [nevarne države](sl/stats#europe-chart); priporočeno delo od doma; posamične prepovedi obiskov v ogroženih domovih za ostarele.\n2. paket: **> 80** (14-dnevna pojavnost) **> 100** (hospitalizirani) **> 20** (v enoti intenzivne terapije). Ukrepi: strežba samo sedečim za mizami, razredčitev miz v lokalih; zbiranje do 10 ljudi javno in zasebno (izjema: verski obredi in poroke; nadzorovane javne kulturne in športne prireditve ob upoštevanju ukrepov); prireditve brez zakusk; obvezna uporaba razkuževalnih sredstev za roke v skupnih prostorih večstanovanjskih stavb ter poslovnih stavb (obvezna namestitev razpršilnikov za razkužila); omejitev števila oseb v zaprtih javnih prostorih (trgovine, banke, pošte, uradi ipd.); prepoved obiskov v domovih za ostarele in bolnišnicah v posameznih okoljih/občinah.\n3. paket: **> 120** (14-dnevna pojavnost) **> 180** (hospitalizirani) **> 30** (v enoti intenzivne terapije). Ukrepi: zapora/karantena posameznih občin ali regij; splošna prepoved obiskov v bolnišnicah in zavodih; zaprtje gostinskih lokalov; zaprtje fitnes centrov in športnih objektov za amaterje, za skupinske športe; omejitev delovanja frizerskih in kozmetičnih salonov na največ eno stranko na prostor; prepoved vseh javnih in kulturnih prireditev ter verskih obredov in porok v posameznih občinah ali regijah; zaprtje nenujne zdravstvene in zobozdravstvene dejavnosti.\n**Rdeča faza** je sestavljena iz treh paketov ukrepov glede na stanje vseh treh dejavnikov.\n\n1. paket: **> 140** (14-dnevna pojavnost) **> 250** (hospitalizirani) **> 50** (v enoti intenzivne terapije). Ukrepi: zaprtje trgovskih centrov; šola na daljavo za srednje šole in univerze; zaprtje kulturnih ustanov; splošna prepoved verskih obredov in porok s prisotnimi gosti.\n2. paket: **> 170** (14-dnevna pojavnost) **> 300** (hospitalizirani) **> 50** (v enoti intenzivne terapije). Ukrepi: šola na daljavo za vse; posebni dodatni sloti za starejše; zaprtje frizerskih in kozmetičnih salonov; zaprtje hotelov; zaprtje športnih objektov za amaterje za individualne športe ter za športno dejavnost otrok in mladostnikov; omejitev gibanja med 22.30 in 5. uro.\n3. paket: **> xxx** (14-dnevna pojavnost) **> 360** (hospitalizirani) **> 60** (v enoti intenzivne terapije). Ukrepi: omejitev gibanja med občinami; zaprtje vrtcev; zaustavitev javnega prometa; zaprtje meja (razen tovorni promet in nujni prehodi); omejitev izhodov razen nujnih izjem; zapiranje posameznih gospodarskih dejavnosti. (V veljavi tudi vsi drugi sektorski ukrepi državnega načrta.)\nVsi trenutno veljavni ukrepi in omejitve so zbrani na strani [Ukrepi in omejitve](/sl/restrictions)."
         },
         "metrics-comparison-chart": {
             "question": "Kaj kaže graf \"Stanje COVID-19 v Sloveniji\"?",
-            "answer": "[Graf](/sl/stats#metrics-comparison-chart) prikazuje dnevno in skupno dinamiko širjenja okužbe od začetka do danes. Uporabljeni kazalniki (gl. [Katere kazalnike vključuje graf o stanju?](#chart-metrics-included)) nam pomagajo razumeti, kako uspešno obvladujemo širjenje virusa. Spremljamo lahko, kakšen je dnevni prirast primerov, in posredno vidimo, ali ukrepi delujejo; iz podatka o številu hospitaliziranih in deleža teh v intenzivni enoti lahko razberemo, koliko oseb je bolezen resno ogrozila, hkrati pa nam ti podatki kažejo tudi, kolikšna je obremenjenost zdravstvenega sistema. \n\nS preklopom na prikaz 7-dnevno povprečje lahko opazujemo trend naraščanja oziroma upadanja posameznih kazalnikov, kar omogoča lažje spremljanje trendov v povezavi z [različnimi fazami](www.gov.si/teme/koronavirus-sars-cov-2/ukrepi-za-zajezitev-sirjenja-okuzb/), ki jih je določila Vlada RS. \n\nPrivzeto časovno obdobje prikaza je dva meseca; to lahko spremenimo tako, da izberemo prikaz Vse ali pa sami določimo datume, za katere želimo imeti določen prikaz.\n\nSpodaj na časovnem traku so označene prelomne točke: od prvega potrjenega primera (4. 3. 2020) do posameznih ukrepov (po ključni besedi in datumu) za zajezitev širjenja oziroma njihovega rahljanja, kar nam pomaga spremljati dinamiko spremenljivk glede na ukrepe."
+            "answer": "[Graf](/sl/stats#metrics-comparison-chart) prikazuje dnevno in skupno dinamiko širjenja okužbe od začetka do danes. Uporabljeni kazalniki (gl. [Katere kazalnike vključuje graf o stanju?](#chart-metrics-included)) nam pomagajo razumeti, kako uspešno obvladujemo širjenje virusa. Spremljamo lahko, kakšen je dnevni prirast primerov, in posredno vidimo, ali ukrepi delujejo; iz podatka o številu hospitaliziranih in deleža teh v intenzivni terapiji lahko razberemo, koliko oseb je bolezen resno ogrozila, hkrati pa nam ti podatki kažejo tudi, kolikšna je obremenjenost zdravstvenega sistema. \n\nS preklopom na prikaz 7-dnevno povprečje lahko opazujemo trend naraščanja oziroma upadanja posameznih kazalnikov, kar omogoča lažje spremljanje trendov v povezavi z [različnimi fazami](www.gov.si/teme/koronavirus-sars-cov-2/ukrepi-za-zajezitev-sirjenja-okuzb/), ki jih je določila Vlada RS. \n\nPrivzeto časovno obdobje prikaza je dva meseca; to lahko spremenimo tako, da izberemo prikaz Vse ali pa sami določimo datume, za katere želimo imeti določen prikaz.\n\nSpodaj na časovnem traku so označene prelomne točke: od prvega potrjenega primera (4. 3. 2020) do posameznih ukrepov (po ključni besedi in datumu) za zajezitev širjenja oziroma njihovega rahljanja, kar nam pomaga spremljati dinamiko spremenljivk glede na ukrepe."
         },
         "chart-metrics-included": {
             "question": "Katere kazalnike vključuje graf \"Stanje COVID-19 v Sloveniji\"?",
-            "answer": "[Graf](/sl/stats#metrics-comparison-chart) vključuje:\n\n* **Testiranja (na dan)** = Število opravljenih testiranj na prisotnost virusa SARS-CoV-2, ki povzroča bolezen COVID-19. V prvih fazah epidemije je to bil pomemben pokazatelj razširjenosti virusa, a se je s spremembo metodologije testiranja oz. vzorca testiranih to spremenilo v kazalec kapacitete zdravstvenega oz. diagnostičnega sistema.\n\n* **Testiranja (skupaj)** = Vsota testiranj do dne; podatek je uporaben v smislu primerjave oz. deleža celotne populacije, vendar je zavajajoč, saj so določene osebe lahko testirane večkrat (npr. zdravstveni delavci, zaposleni v DSO ipd.).\n\n* **Potrjeni primeri (na dan)** = Število potrjenih primerov na dan na podlagi testov (od 21.12.2020 PCR in HAT). Ta kazalec ne odraža dejanskega gibanja novih okužb v populaciji, saj se s testi ne vzorči celotne populacije, ampak se ciljno testira rizične in poklicne skupine.\n\n* **Potrjeni primeri (skupaj)** = Skupno število vseh potrjenih primerov do določenega dne.\n\n* **Aktivni primeri** = Potrjeni primeri (skupaj) – Preboleli (skupaj) – Umrli (skupaj)\n\n* **Preboleli (skupaj)** = Število prebolelih na določen dan je preprosta ocena, enaka številu vseh potrjenih primerov dva tedna pred danim datumom (ob predpostavki, da se bolezen povprečno preboli najkasneje v 14 dneh), od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Gl. tudi [Zakaj tako dolgo niste prikazovali števila ozdravelih in zakaj zdaj namesto teh prikazujete prebolele?](#data-recovered)\n\n* **Hospitalizirani** = Trenutno število oseb v bolnišnični oskrbi (na navadnem oddelku ali v enoti za intenzivno terapijo).\n\n* **Hospitalizirani (skupaj)** = Vsota vseh do sedaj sprejetih v bolnišnico do dne.\n\n* **V intenzivni enoti** = Trenutno število oseb v enotah intenzivne terapije.\n\n* **Na respiratorju (intubirani)** = Trenutno število oseb, ki za dihanje potrebujejo respirator (medicinski ventilator).\n\n* **Odpuščeni iz bolnišnice (na dan)** = Število odpuščenih iz bolnišnice na ta dan.\n\n* **Odpuščeni iz bolnišnice (skupaj)** = Vsota vseh odpuščenih iz bolnišnice do tega dne.\n\n* **Umrli (na dan)** = Število umrlih za posledicami COVID-19 na ta dan.\n\n* **Umrli (skupaj)** = Vsota vseh umrlih do tega dne."
+            "answer": "[Graf](/sl/stats#metrics-comparison-chart) vključuje:\n\n* **Testiranja (na dan)** = Število opravljenih testiranj na prisotnost virusa SARS-CoV-2, ki povzroča bolezen COVID-19. V prvih fazah epidemije je to bil pomemben pokazatelj razširjenosti virusa, a se je s spremembo metodologije testiranja oz. vzorca testiranih to spremenilo v kazalec kapacitete zdravstvenega oz. diagnostičnega sistema.\n\n* **Testiranja (skupaj)** = Vsota testiranj do dne; podatek je uporaben v smislu primerjave oz. deleža celotne populacije, vendar je zavajajoč, saj so določene osebe lahko testirane večkrat (npr. zdravstveni delavci, zaposleni v DSO ipd.).\n\n* **Potrjeni primeri (na dan)** = Število potrjenih primerov na dan na podlagi testov (od 21.12.2020 PCR in HAT). Ta kazalec ne odraža dejanskega gibanja novih okužb v populaciji, saj se s testi ne vzorči celotne populacije, ampak se ciljno testira rizične in poklicne skupine.\n\n* **Potrjeni primeri (skupaj)** = Skupno število vseh potrjenih primerov do določenega dne.\n\n* **Aktivni primeri** = Potrjeni primeri (skupaj) – Preboleli (skupaj) – Umrli (skupaj)\n\n* **Preboleli (skupaj)** = Število prebolelih na določen dan je preprosta ocena, enaka številu vseh potrjenih primerov dva tedna pred danim datumom (ob predpostavki, da se bolezen povprečno preboli najkasneje v 14 dneh), od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Gl. tudi [Zakaj tako dolgo niste prikazovali števila ozdravelih in zakaj zdaj namesto teh prikazujete prebolele?](#data-recovered)\n\n* **Hospitalizirani** = Trenutno število oseb v bolnišnični oskrbi (na navadnem oddelku ali v enoti intenzivne terapije).\n\n* **Hospitalizirani (skupaj)** = Vsota vseh do sedaj sprejetih v bolnišnico do dne.\n\n* **V intenzivni terapiji** = Trenutno število oseb v enotah intenzivne terapije.\n\n* **Na respiratorju (intubirani)** = Trenutno število oseb, ki za dihanje potrebujejo respirator (medicinski ventilator).\n\n* **Odpuščeni iz bolnišnice (na dan)** = Število odpuščenih iz bolnišnice na ta dan.\n\n* **Odpuščeni iz bolnišnice (skupaj)** = Vsota vseh odpuščenih iz bolnišnice do tega dne.\n\n* **Umrli (na dan)** = Število umrlih za posledicami COVID-19 na ta dan.\n\n* **Umrli (skupaj)** = Vsota vseh umrlih do tega dne."
         },
         "chart-terminology": {
             "question": "Kaj pomeni izraz …?",
-            "answer": "Sledilnik uporablja terminologijo, ki je skladna z uradnimi oznakami in smernicami WHO in ECDC (Evropskega centra za preprečevanje in obvladovanje bolezni). V prikazih se uporabljajo naslednje oznake:\n* **potrjeni primeri** = To je število oseb, ki so bile pozitivne na testu prisotnosti virusa SARS-CoV-2 (od 21.12.2020 PCR in HAT). Ker je število potrjenih primerov odvisno zgolj od testiranja in ker zaradi spremenjene politike testiranja večina okuženih z blagimi simptomi sploh ne bo testirana na prisotnost COVID-19, je podatek o potrjenih primerih bistveno manjši od dejanskega števila okuženih ljudi.\n\n* **hospitalizirani** = To je število potrjenih primerov, ki imajo tako resne simptome bolezni COVID-19, da so bile sprejete v bolnišnično oskrbo.\n\n* **v intenzivni enoti** = Označuje število hospitaliziranih oseb, ki so zaradi simptomov bolezni COVID-19 v življenjski nevarnosti in potrebujejo namestitev v enoti za intenzivno terapijo. Gre za podmnožico kategorije *Hospitalizirani*.\n\n* **na respiratorju (intubirani)** = Označuje število hospitaliziranih oseb v intenzivni enoti, ki za dihanje potrebujejo respirator (medicinski ventilator) z intubacijo (invazivna mehanska ventilacija). Gre za podmnožico kategorije *V intenzivni enoti* in kategorije *Hospitalizirani*.\n\n* **preboleli** = To je ocena števila oseb, pri katerih je bila potrjena okužba in naj bi po 14 dneh prebolele bolezen. Število prebolelih je tako enako številu vseh potrjenih primerov dva tedna pred danim datumom, od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Gl. tudi [Zakaj tako dolgo niste prikazovali števila ozdravelih in zakaj zdaj namesto teh prikazujete prebolele?](#data-recovered)"
+            "answer": "Sledilnik uporablja terminologijo, ki je skladna z uradnimi oznakami in smernicami WHO in ECDC (Evropskega centra za preprečevanje in obvladovanje bolezni). V prikazih se uporabljajo naslednje oznake:\n* **potrjeni primeri** = To je število oseb, ki so bile pozitivne na testu prisotnosti virusa SARS-CoV-2 (od 21.12.2020 PCR in HAT). Ker je število potrjenih primerov odvisno zgolj od testiranja in ker zaradi spremenjene politike testiranja večina okuženih z blagimi simptomi sploh ne bo testirana na prisotnost COVID-19, je podatek o potrjenih primerih bistveno manjši od dejanskega števila okuženih ljudi.\n\n* **hospitalizirani** = To je število potrjenih primerov, ki imajo tako resne simptome bolezni COVID-19, da so bile sprejete v bolnišnično oskrbo.\n\n* **v intenzivni terapiji** = Označuje število hospitaliziranih oseb, ki so zaradi simptomov bolezni COVID-19 v življenjski nevarnosti in potrebujejo namestitev v enoti intenzivne terapije. Gre za podmnožico kategorije *Hospitalizirani*.\n\n* **na respiratorju (intubirani)** = Označuje število hospitaliziranih oseb v enoti intenzivne terapije, ki za dihanje potrebujejo respirator (medicinski ventilator) z intubacijo (invazivna mehanska ventilacija). Gre za podmnožico kategorije *V intenzivni terapiji* in kategorije *Hospitalizirani*.\n\n* **preboleli** = To je ocena števila oseb, pri katerih je bila potrjena okužba in naj bi po 14 dneh prebolele bolezen. Število prebolelih je tako enako številu vseh potrjenih primerov dva tedna pred danim datumom, od katerega se odšteje še število umrlih do istega dne, ko se ugotavlja število prebolelih. Gl. tudi [Zakaj tako dolgo niste prikazovali števila ozdravelih in zakaj zdaj namesto teh prikazujete prebolele?](#data-recovered)"
         },
         "cases-chart": {
             "question": "Kaj pomenijo zaprti primeri in kaj so aktivni primeri?",
@@ -1572,7 +1601,11 @@
         },
         "patients-chart": {
             "question": "Kaj nam pove graf \"Hospitalizirani\"?",
-            "answer": "[Graf](/sl/stats#patients-chart) nam v prikazu (*Vse bolnišnice*) kaže celotno sliko hospitalizacij glede na stanje pacientov po dnevih: stolpci s pozitivno vrednostjo (tisti nad vodoravno osjo) prikazujejo število sprejetih, število hospitaliziranih, z rdečimi odtenki so označeni posamezniki v enoti intenzivne terapije ter koliko od teh je v kritičnem stanju na respiratorju (intubirani). Stolpci z negativno vrednostjo (tisti pod vodoravno osjo) prikazujejo število odpuščenih in umrlih ta dan. Spodaj lahko izberemo tudi posamezno COVID-19 bolnišnico in tako pogled omejimo. Če spodaj izberemo pogled *Po bolnišnicah*, pa lahko za vsako od COVID-19 bolnišnic vidimo število oseb v bolnišnični oskrbi po dnevih.\n\nPrikaz je lahko osnova za presojo bolnišničnih zmogljivosti in načrtovanje njihovega morebitnega povečanja. Po besedah ministra za zdravje Tomaža Gantarja je bilo spomladi stanje takšno: \"Za bolnike s COVID-19 imamo v bolnišnicah pripravljenih 539 postelj, po potrebi se ta zmogljivost lahko poveča do 1000 postelj, ... Za intenzivno terapijo imamo trenutno na razpolago 113 postelj.\" Če vemo, da traja hospitalizacija nekoga v intenzivni enoti pri nas pribl. 14 dni ([po besedah dr. Matjaža Jereba](https://www.rtvslo.si/zdravje/novi-koronavirus/matjaz-jereb-smrtnost-kriticno-bolnih-na-oddelku-ni-velika/519962); svetovno povprečje je 3–6 tednov), lahko graf ponudi dober uvid o obremenitvi bolnišnic."
+            "answer": "[Graf](/sl/stats#patients-chart) nam v prikazu (*Vse bolnišnice*) kaže celotno sliko hospitalizacij glede na stanje pacientov po dnevih: stolpci s pozitivno vrednostjo (tisti nad vodoravno osjo) prikazujejo število sprejetih, število hospitaliziranih, z rdečimi odtenki so označeni posamezniki v enoti intenzivne terapije ter koliko od teh je v kritičnem stanju na respiratorju (intubirani). Stolpci z negativno vrednostjo (tisti pod vodoravno osjo) prikazujejo število odpuščenih in umrlih ta dan. Spodaj lahko izberemo tudi posamezno COVID-19 bolnišnico in tako pogled omejimo. Če spodaj izberemo pogled *Po bolnišnicah*, pa lahko za vsako od COVID-19 bolnišnic vidimo število oseb v bolnišnični oskrbi po dnevih.\n\nPrikaz je lahko osnova za presojo bolnišničnih zmogljivosti in načrtovanje njihovega morebitnega povečanja. Po besedah ministra za zdravje Tomaža Gantarja je bilo spomladi stanje takšno: \"Za bolnike s COVID-19 imamo v bolnišnicah pripravljenih 539 postelj, po potrebi se ta zmogljivost lahko poveča do 1000 postelj, ... Za intenzivno terapijo imamo trenutno na razpolago 113 postelj.\" Če vemo, da traja hospitalizacija nekoga v enoti intenzivne terapije pri nas pribl. 14 dni ([po besedah dr. Matjaža Jereba](https://www.rtvslo.si/zdravje/novi-koronavirus/matjaz-jereb-smrtnost-kriticno-bolnih-na-oddelku-ni-velika/519962); svetovno povprečje je 3–6 tednov), lahko graf ponudi dober uvid o obremenitvi bolnišnic."
+        },
+        "icu-patients-chart": {
+            "question": "Kaj nam pove graf \"Intenzivna terapija\"?",
+            "answer": "[Graf](/sl/stats#icu-patients-chart) nam v prikazu (*Vse bolnišnice*) kaže celotno sliko hospitalizacij v enotah intenzivne terapije glede na stanje pacientov po dnevih: stolpci s pozitivno vrednostjo (tisti nad vodoravno osjo) prikazujejo število sprejetih na oddelek, število na oddelku in koliko od teh je v kritičnem stanju na respiratorju (intubirani). Stolpci z negativno vrednostjo (tisti pod vodoravno osjo) prikazujejo število premeščenih na akutni oddelek in umrlih ta dan. Spodaj lahko izberemo tudi posamezno COVID-19 bolnišnico in tako pogled omejimo. Če spodaj izberemo pogled *Po bolnišnicah*, pa lahko za vsako od COVID-19 bolnišnic vidimo število oseb v intenzivni terapiji po dnevih."
         },
         "care-patients-chart": {
             "question": "Kaj nam pove graf \"Negovalne bolnišnice\"?",
@@ -1596,7 +1629,7 @@
         },
         "ratios-chart": {
             "question": "Kaj nam pove graf \"Delež resnih primerov\"?",
-            "answer": "[Graf](/sl/stats#ratios-chart) prikazuje deleže resnih primerov bolezni in smrtnosti v treh različnih prikazih. Vsi podatki so prikazani v odstotkih (%).\n**Pozor**: Delež resnih primerov prikazuje delež vseh do zdaj hospitaliziranih (+ ICU, respirator). Ta prikaz torej ni vezan na trenutno hospitalizirane, ampak prikazuje hospitalizirane, ICU, respirator in smrti kot delež vseh potrjenih primerov. Če se je število potrjenih primerov na določen dan povečalo, število na respiratorju (intubirani) pa ne (je ostalo nespremenjeno), bo to povzročilo padec % na repiratorjih. Pri tem prikazu ni pomembna dnevna sprememba, ampak se prikazujejo trendi. Na začetku je zato krivulja zelo nestabilna, na koncu pa se stabilizira. Ideja tega grafa je, da nam nudi oceno deleža resnih primerov po posameznih kategorijah.\n\n(*Resni primeri*) nam kaže hospitalizirane, v intenzivni enoti, na respiratorju (intubirani) in umrle kot delež vseh potrjenih primerov. Iz tega je razvidno, kolikšen delež vseh potrjenih primerov ima težjo obliko bolezni, ki zahteva hospitalizacijo, sprejem v intenzivno enoto in uporabo respiratorja.\n\n(*Hospitalizirani*) nam kaže osebe v intenzivni enoti, na respiratorju (intubirani) in umrle v bolnišnici kot delež vseh hospitaliziranih. Ta prikaz ponazori, na kakšnem oddelku in kakšno obravnavo potrebujejo hospitalizirani bolniki.\n\n(*Smrtnost*) nam pokaže delež smrti v bolnišnici glede na vse umrle in delež smrti v intenzivni enoti glede na vse umrle - prikazano s polno črto. S črtkano črto sta prikazani Smrtnost v bolnišnici (koliko oseb umre glede na vse hospitalizirane) in Smrtnost v intenzivni enoti (koliko oseb umre glede na vse sprejete v intenzivno enoto).\n\nGraf je uporaben za razumevanje obravnave bolnikov v Sloveniji in primerjave z drugimi državami (glede na njihova poročila)."
+            "answer": "[Graf](/sl/stats#ratios-chart) prikazuje deleže resnih primerov bolezni in smrtnosti v treh različnih prikazih. Vsi podatki so prikazani v odstotkih (%).\n**Pozor**: Delež resnih primerov prikazuje delež vseh do zdaj hospitaliziranih (+ ICU, respirator). Ta prikaz torej ni vezan na trenutno hospitalizirane, ampak prikazuje hospitalizirane, ICU, respirator in smrti kot delež vseh potrjenih primerov. Če se je število potrjenih primerov na določen dan povečalo, število na respiratorju (intubirani) pa ne (je ostalo nespremenjeno), bo to povzročilo padec % na repiratorjih. Pri tem prikazu ni pomembna dnevna sprememba, ampak se prikazujejo trendi. Na začetku je zato krivulja zelo nestabilna, na koncu pa se stabilizira. Ideja tega grafa je, da nam nudi oceno deleža resnih primerov po posameznih kategorijah.\n\n(*Resni primeri*) nam kaže hospitalizirane, v intenzivni terapiji, na respiratorju (intubirani) in umrle kot delež vseh potrjenih primerov. Iz tega je razvidno, kolikšen delež vseh potrjenih primerov ima težjo obliko bolezni, ki zahteva hospitalizacijo, sprejem v intenzivno enoto in uporabo respiratorja.\n\n(*Hospitalizirani*) nam kaže osebe v enoti intenzivne terapije, na respiratorju (intubirani) in umrle v bolnišnici kot delež vseh hospitaliziranih. Ta prikaz ponazori, na kakšnem oddelku in kakšno obravnavo potrebujejo hospitalizirani bolniki.\n\n(*Smrtnost*) nam pokaže delež smrti v bolnišnici glede na vse umrle in delež smrti v enoti intenzivne terapije glede na vse umrle - prikazano s polno črto. S črtkano črto sta prikazani Smrtnost v bolnišnici (koliko oseb umre glede na vse hospitalizirane) in Smrtnost v enoti intenzivne terapije (koliko oseb umre glede na vse sprejete v intenzivno enoto).\n\nGraf je uporaben za razumevanje obravnave bolnikov v Sloveniji in primerjave z drugimi državami (glede na njihova poročila)."
         },
         "hcenters-chart": {
             "question": "Kaj nam pove graf \"Obravnava v ZD\"?",
@@ -1607,7 +1640,7 @@
             "answer": "[Graf](/sl/stats#tests-chart) prikazuje skupno število rednih testiranj (prikaz *Redno PCR*) in testiranj [nacionalne raziskave IMI](https://covid19.biolab.si/) (z izbiro prikaza *Raziskava*). S stolpci je prikazano število negativnih in pozitivnih testov na posamezni dan, krivulja kaže dnevni delež pozitivnih testov v odstotkih.\n\nOd Decembra 2020 pa spremljamo tudi hitre antigenske teste (HAT) - število testiranj in število odkritih pozitivnih oseb (prikaz *Redno HAT*)."
         },
         "infections-chart": {
-            "question": "Kaj nam pove graf \"Struktura potrjenih primerov?",
+            "question": "Kaj nam pove graf \"Struktura potrjenih primerov\"?",
             "answer": "[Graf](/sl/stats#infections-chart) nudi vpogled, kolikšen je med vsemi potrjenimi primeri dnevni delež potrjeno okuženih oseb iz rizičnih skupin oz. zaposlenih na rizičnih območjih. Zaradi časovno ne dovolj natančnih vhodnih podatkov o potrjenih primerih so dnevne vrednosti (*Po dnevih (povprečno)*) prikazane kot drseče povprečje 7 dni. Seštevek vrednosti tega dneva, 3 dni pred dnevom in 3 dni po tem dnevu je deljen s 7. Zato graf kaže stanje za štiri dni nazaj, na ta način pa dobimo boljšo predstavo o trendih po posameznih skupinah. Če spodaj izberemo prikaz *Skupno* oz. *Relativno*, bomo iz krivulje potrjenih primerov preskočili na stolpčni prikaz, ki kaže, kolikšno je število potrjenih primerov znotraj posamezne kategorije za na določen dan.\n\nPrirast primerov med zdravstvenimi delavci ne pomeni, da so bili odkriti točno na ta dan; lahko so bili pozitivni že prej in se je samo podatek o njihovem statusu pridobil naknadno. Postavka *Zaposleni v DSO* vključuje zdravstvene delavce, sodelavce in zunanjo pomoč (študentje zdravstvenih smeri), zato so dnevni podatki o zdravstvenih delavcih (modra krivulja oz. stolpci) ustrezno zmanjšani na račun zaposlenih v DSO. To pomeni, da je število zdravstvenih delavcev zelo konzervativna ocena."
         },
         "spread-chart": {
@@ -1688,7 +1721,7 @@
         },
         "weekly-demographics-chart": {
             "question": "Kaj nam kaže \"Demografija potrjenih primerov, tedensko\"?",
-            "answer": "[Demografija potrjenih primerov, tedensko](/sl/stats#weekly-demographics-chart) v osnovnem pogledu *Novi primeri* prikazuje tedensko število novih primerov razdeljenih po starostnih skupinah, izraženo kot delež prebivalstva (od 21.12.2020 PCR in HAT). Podatki so prikazani v obliki t.i. *toplotne karte*.  Polja v odtenkih zelene pomenijo, da je bilo v danem tednu zabeleženih malo primerov, medtem ko rjavi odtenki pomenijo večje število potrjenih primerov.\n\n S klikom na gumb *Razmerje primerov M/Ž*, ki se nahaja v levem spodnjem kotu, pogled preklopimo v prikaz razmerja med tedenskimi potrjenimi primeri po spolu. Barva polja nam pove, da je bilo v posameznem tednu zaznanih več primerov bodisi med moško populacijo (modra barva), bodisi med žensko populacijo (rdeča barva) v starostni skupini. Odstopanje od ravnovesja se izraža v intenziteti barvnega odtenka."
+            "answer": "[Demografija potrjenih primerov, tedensko](/sl/stats#weekly-demographics-chart) v osnovnem pogledu *Novi primeri* prikazuje tedensko število novih primerov razdeljenih po starostnih skupinah, izraženo kot delež prebivalstva (od 21.12.2020 PCR in HAT). Podatki so prikazani v obliki t.i. *toplotne karte*. Polja v odtenkih zelene pomenijo, da je bilo v danem tednu zabeleženih malo primerov, medtem ko rjavi odtenki pomenijo večje število potrjenih primerov.\n\n S klikom na gumb *Razmerje primerov M/Ž*, ki se nahaja v levem spodnjem kotu, pogled preklopimo v prikaz razmerja med tedenskimi potrjenimi primeri po spolu. Barva polja nam pove, da je bilo v posameznem tednu zaznanih več primerov bodisi med moško populacijo (modra barva), bodisi med žensko populacijo (rdeča barva) v starostni skupini. Odstopanje od ravnovesja se izraža v intenziteti barvnega odtenka."
         },
         "what-is-sledilnik": {
             "question": "Kaj je Sledilnik?",
@@ -1697,6 +1730,65 @@
         "how-to-help": {
             "question": "Želim pomagati, kje lahko začnem?",
             "answer": "Pišite nam na info@sledilnik.org in na kratko opišite, kdo ste in kako lahko prispevate k projektu. Vabljeni!"
+        }
+    },
+    "donation": {
+        "title": "Podpiram Sledilnik",
+        "intro": "Smo **Znanstveno društvo Sledilnik** in vabimo vas, da po svojih močeh podprete naša prizadevanja. Z vašo podporo bomo lahko nadaljevali z analiziranjem in obdelavo podatkov na kritičnih področjih družbenega delovanja. Vsak prispevek pomeni vložek v prihodnost, boljšo ozaveščenost o razsežnostih težave in pravilno oceno tveganj.\n\nZ vašim prispevkom nam pomagate ostati to, kar smo: znanstvena skupnost, ki nudi javne in prosto dostopne informacije ter analize za vse – **za boljši danes in jutri vseh nas**. Hvala, ker vam ni vseeno!",
+        "bankDetails": {
+            "recipient": "Prejemnik",
+            "purposeCode": "Koda namena",
+            "purpose": "Namen",
+            "reference": "Referenca",
+            "iban": "Račun IBAN",
+            "bank": "Banka",
+            "bankBicSwift": "BIC/SWIFT banke"
+        },
+        "success": {
+            "title": "Hvala za vašo donacijo",
+            "description": "Vaša donacija nam bo pomagala pri našem delu.<br>Vabimo Vas, da k donaciji povabite tudi svoje znance in prijatelje, ki so z našim delom zadovoljni.",
+            "session": "ID seje plačila:"
+        },
+        "onetime": {
+            "title": "Enkratna donacija",
+            "banktransfer": {
+                "description": "Prispevek lahko **nakažete tudi z bančnega računa** z uporabo naloga UPN v vaši spletni banki. Podatki so spodaj. Če uporabljate mobilno bančno aplikacijo, lahko nalog preprosto izpolnite s skeniranjem QR-kode. V obeh primerih na nalog vpišite **poljuben znesek**."
+            },
+            "stripe": {
+                "description": "Enkratni prispevek Sledilniku lahko vplačate tudi **s kreditno kartico**. Izberite znesek, s katerim želite podpreti naše delovanje:",
+                "success": {
+                    "title": "Hvala za enkratno donacijo",
+                    "description": ""
+                }
+            }
+        },
+        "monthly": {
+            "title": "Redna mesečna donacija",
+            "stripe": {
+                "description": "Redna mesečna donacija nam omogoča predvidljiv prihodek in boljše načrtovanje plačljivih aktivnosti, vaš strošek podpore pa se enakomerno porazdeli skozi leto. Izberite znesek, s katerim ste pripravljeni redno podpreti naše delovanje **s kreditno kartico**:",
+                "stopping": "Donacijo lahko prekinete kadarkoli tako, da nam to sporočite na drustvo@sledilnik.org.",
+                "donateButton": "{{amount}} na mesec",
+                "success": {
+                    "title": "Hvala za redno mesečno donacijo",
+                    "description": "V kolikor bi iz kakršnegakoli razloga redno donacijo želeli ustaviti nam pišite na drustvo@sledilnik.org."
+                }
+            },
+            "permanentBankTransferOrder": {
+                "description": "Redna mesečna donacija je mogoča tudi **z vzpostavitvijo trajnega naloga**, kar uredite pri svoji banki z navedbo naših podatkov in poljubnega zneska:",
+                "authorisation": "Lahko pa izpolnite obrazec - pooblastilo in bomo to z vašo banko **uredili mi**.<br>Ko želite trajnik preklicati, nas o tem obvestite na drustvo@sledilnik.org in preklic uredimo mi."
+            }
+        },
+        "incomeTax": {
+            "title": "Namenite nam delež dohodnine",
+            "description": "Urejamo vse potrebno, da bo to v prihodnosti mogoče, trenutno pa nam deleža dohodnine žal ne morete nameniti."
+        },
+        "companies": {
+            "title": "Donacije pravnih oseb",
+            "description": "Prosimo, kontaktirajte nas na drustvo@sledilnik.org in pripravili bomo donatorsko pogodbo ali drugo potrebno dokumentacijo po dogovoru."
+        },
+        "other": {
+            "title": "Drugi načini podpore",
+            "description": "Podatke za mednarodna bančna nakazila najdete na straneh v drugih jezikih, na primer v [angleščini](/en/donate).\n\nVeseli vaših pohval, predlogov in deljenja naših informacij na [Twitterju](https://twitter.com/sledilnik), [Facebooku](https://fb.me/COVID19Sledilnik), [YouTubu](https://www.youtube.com/channel/UCM_Sk2GZ8vTMiyBQ0SMHgJw/videos), [Instagramu](https://www.instagram.com/sledilnik/) in drugih platformah, pa tudi dopolnitev in popravkov izvorne kode na [GitHubu](https://github.com/sledilnik).\n\nŠe bolj veseli bomo, če nam omogočite dostop do kakršnih koli odprtih podatkov, primernih za naše analize.\n\nŽelite drugače podpreti Sledilnik ali imate svojo idejo o sodelovanju? Kontaktirajte nas na drustvo@sledilnik.org in z veseljem bomo našli rešitev."
         }
     }
 }
